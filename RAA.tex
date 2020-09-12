@@ -1,0 +1,114 @@
+\documentclass{beamer}
+\usefonttheme[onlymath]{serif}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[francais]{babel}
+
+% For table
+\usepackage{booktabs} % To thicken table lines
+\usepackage{multirow}
+\usepackage{amsmath}
+
+\usepackage[group-separator={,}]{siunitx}
+
+  %for tikz figure
+\usepackage{tikz}
+\usetikzlibrary{decorations.pathreplacing}
+\usetikzlibrary{fadings}
+\usetikzlibrary{positioning} %for lstm
+\usetikzlibrary{shapes, backgrounds}
+\usetikzlibrary{arrows}
+\usetikzlibrary{chains}
+\tikzstyle{line} = [draw, -latex']
+\usepackage{adjustbox}
+
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+
+\definecolor{color3}{rgb}{0,0.7,0.3}
+\definecolor{color1}{rgb}{0,0.1,0.8}
+\definecolor{color2}{rgb}{0.9,0.0,0}
+
+\graphicspath{{img/}}
+
+
+\mode<presentation> {
+	\usetheme{ulaval}
+	\setbeamercovered{invisible}
+}
+
+\logo{
+	\includegraphics[height=0.65cm, keepaspectratio]{graal.pdf}\hspace{.2cm}\vspace{.85\paperheight}}
+
+
+\title{Reproductibilité en apprentissage automatique}
+%\subtitle[]{}
+
+\author[D. Beauchemin]{David Beauchemin}
+\institute[Université Laval]
+{
+	Département d'informatique et de génie logiciel, \\
+	Université Laval\\
+	\medskip
+	{\emph{david.beauchemin.5@ulaval.ca}}
+}
+\date{30 octobre 2020}
+
+\AtBeginSection[]
+{
+	\begin{frame}<beamer>
+		\frametitle{Plan}
+		\tableofcontents[currentsection]
+	\end{frame}
+}
+
+\begin{document}
+	
+	
+	\begin{frame}[label=titre, plain]
+		\titlepage
+		\begin{center}
+			\includegraphics[height=1cm]{graal}
+			\includegraphics[height=1cm]{UL_P}
+		\end{center}
+	\end{frame}
+
+	\begin{frame}{Objectifs de la présentation}
+		\begin{itemize}
+			\item Sensibiliser sur les enjeux de la reproductibilité.
+			\item Inciter l'intégration des solutions permettant une meilleure reproductibilité dans vos solutions d'affaires ou académiques.
+		\end{itemize}
+	\end{frame}
+
+	\begin{frame}{Mes qualifications}
+		\begin{itemize}
+			\item Introduit (informellement) à la recherche reproductible en 2016 (RMarkdown et Git).
+			\item Participation à REPROLANG, visant la reproductibilité d'articles scientifiques ayant mené à la publication d'un article en 2019.
+			\item Développement en cours de solution d'intégration facilitant la reproductibilité (Poutyne, MLFlow callback).
+			\item Candidat au doctorat en informatique en apprentissage automatique.
+			\item Membre fondateur de Baseline.
+		\end{itemize}
+	\end{frame}
+	
+	\section{Introduction}
+	\begin{frame}{C'est quoi la reproductibilité ?}
+		
+	\end{frame}
+		
+
+	\section{Les barrières à la reproductibilité}
+	
+	\section{La reproductibilité jusqu'où?}
+	
+	\section{La suite}
+	
+	
+	\begin{frame}[t, allowframebreaks]
+		\frametitle{References}
+		\bibliographystyle{apalike}
+		\bibliography{RAA}
+	\end{frame}
+	
+\end{document}
