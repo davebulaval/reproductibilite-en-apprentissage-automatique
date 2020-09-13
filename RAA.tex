@@ -94,11 +94,51 @@
 	
 	\section{Introduction}
 	\begin{frame}{C'est quoi la reproductibilité ?}
+		La reproductibilité est le principe qu'on ne peut tirer de conclusions que d'un événement bien décrit, qui est apparu plusieurs fois, provoqué par des \textbf{personnes différentes}.
 		
+		Toutefois, on utilise souvent ce terme pour spécifiquement désigné la \textbf{réplicabilité}. Soit la réplication (reproduction) des résultats d'un articles dans des environnements pas toujours différents \cite{replicationvsreproductiblity, pineau2020improving}.
 	\end{frame}
-		
 
-	\section{Les barrières à la reproductibilité}
+	\begin{frame}{En somme}
+		\begin{itemize}
+			\item Être capable de répliquer les résultats d'un article,
+			\item à partir du même jeux de données ou un jeux de données différents (mais proche),
+			\item en utilisant la procédure d'entrainement de l'article et
+			\item en utilisant le code du projet.
+		\end{itemize}
+	\end{frame}
+
+	\begin{frame}{Pourquoi s'y intéressé?}
+		\begin{itemize}
+			\item $70$~\% des chercheurs en science on échoué dans leur tentative de reproduire un article d'un autre chercheur,
+			\item ~$50$~\% n'on pas réussit à reproduire leur \textbf{propre} expérimentation \cite{baker500ScientistsLift2016}.
+		\end{itemize}
+	\end{frame}
+
+	\begin{frame}{Pourquoi s'y intéressé?}
+		L'informatique ne fais pas exception à cela malgré la simplicité (théorique) de réplication des résultats. Selon une étude, sur 255 articles près de $40$~\% n'était pas réplicable \cite{raff2019step}.
+	\end{frame}
+
+	\begin{frame}{Pourquoi s'y intéressé?}
+		La réplicabilité du code et d'un article facilite la réutilisation pour d'autres projets de recherche \textbf{et} le transfert vers l'industrie. 
+	\end{frame}
+	
+	\section{Les barrières à la réplicabilité}
+		\begin{frame}
+			\begin{figure}
+				\includegraphics[scale=0.5]{muggle_problems.png}
+				\caption{From Abstruse Goose \url{https://abstrusegoose.com/588}}
+			\end{figure}
+		\end{frame}
+	
+		\begin{frame}
+			\begin{itemize}
+				\item Non disponibilité du jeux de données,
+				\item Mauvaise spécification ou sous-spécification du modèle ou de la procédure de formation,
+				\item Manque de disponibilité du code nécessaire pour exécuter les expériences, ou erreurs dans le code,
+				\item Configuration du modèle déficiente \cite{pineau2020improving}\footnote{Liste sélective de ceux présenté dans l'article.}.
+			\end{itemize}
+		\end{frame}
 	
 	\section{La reproductibilité jusqu'où?}
 	
