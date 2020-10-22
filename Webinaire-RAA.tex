@@ -34,6 +34,9 @@
 
 \usepackage{stackengine} % for stacking logo
 
+\usepackage{svg} %for svg image also need option --shell-escape
+
+
 %% =============================
 %%  Informations de publication
 %% =============================
@@ -441,14 +444,21 @@ BoldFont = *-Regular
 	\end{frame}
 
 	\begin{frame}{Version des données \& Étapes de prétraitement}
-		\begin{itemize}
-			\item Data Version Control (\href{https://dvc.org/}{DVC})
-			\item Dask \cite{dask}
-		\end{itemize}
-	\end{frame}
+		\begin{minipage}{0.49\linewidth}
+			\centering
+			\includesvg[width=40pt, height=40pt]{./img/DVC} \vfil
+			\vspace{1.25em}
+			\href{https://dvc.org/}{Data Version Control}
+		\end{minipage}
+			\begin{minipage}{0.49\linewidth}
+				\centering
+				\includesvg[width=30pt, height=30pt]{./img/dask} \vfil
+				\vspace{0.75em}
+				\href{https://dask.org/}{Dask}
+			\end{minipage}
+ 	\end{frame}
 	
 	\begin{frame}{Code}
-		\centering
 		\uncover<1->{\begin{minipage}{0.32\linewidth}
 				\centering
 				\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faCopy\vfil
@@ -479,9 +489,30 @@ BoldFont = *-Regular
 	\end{frame}
 
 	\begin{frame}{Code}
-		\begin{itemize}
-			\item \href{https://git-scm.com/}{Git} % Logos des 3 principaux services ? github, gitlab & bitbucket ?
-		\end{itemize}
+		\begin{minipage}{0.24\linewidth}
+			\centering
+			\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faGit\vfill
+			\vspace{1em}
+			\normalsize \href{https://git-scm.com/}{Git}
+		\end{minipage}
+		\begin{minipage}{0.24\linewidth}
+			\centering
+			\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faGithub\vfill
+			\vspace{1em}
+			\normalsize \href{https://github.com/}{GitHub}
+		\end{minipage}
+		\begin{minipage}{0.24\linewidth}
+			\centering
+			\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faGitlab\vfill
+			\vspace{1em}
+			\normalsize \href{https://gitlab.com/}{GitLab}
+		\end{minipage}
+		\begin{minipage}{0.24\linewidth}
+			\centering
+			\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faBitbucket\vfill
+			\vspace{1em}
+			\normalsize \href{https://bitbucket.org/}{Bitbucket}
+		\end{minipage}
 	\end{frame}
 	
 	\subsection{Développement}
@@ -521,13 +552,36 @@ BoldFont = *-Regular
 	\end{frame}
 
 	\begin{frame}{Développement des modèles}
-		\begin{itemize} % Camille : ici aussi on pourrait ajouter les logos pour faire plus joli. Ca fera plaisir à Mathieu aussi :P 
-			\item Poutyne \cite{poutyne}
-			\item PyTorch Lightning \cite{falcon2019pytorch}
-			\item Scikit-Learn \cite{sklearn_api}
-			\item Gensim \cite{rehurek_lrec}
-			\item Allen NLP \cite{Gardner2017AllenNLP}
-		\end{itemize}
+		\begin{minipage}{0.19\linewidth}
+			\centering
+			\includesvg[width=40pt, height=40pt]{./img/poutyne} \vfil
+			\vspace{1.5em}
+			\href{https://poutyne.org/}{Poutyne}
+		\end{minipage}
+		\begin{minipage}{0.19\linewidth}
+			\centering
+			\includesvg[width=40pt, height=40pt]{./img/lightning} \vfil
+			\vspace{2.75em}
+			\href{https://www.pytorchlightning.ai/}{PyTorch Lightning}
+		\end{minipage}
+		\begin{minipage}{0.19\linewidth}
+			\centering
+			\includesvg[width=40pt, height=40pt]{./img/scikitlearn} \vfil
+			\vspace{2.75em}
+			\href{https://scikit-learn.org/stable/}{Scikit-learn}
+		\end{minipage}
+			\begin{minipage}{0.19\linewidth}
+				\centering
+				\includesvg[width=40pt, height=40pt]{./img/gensim} \vfil
+				\vspace{1em}
+				\href{https://radimrehurek.com/gensim/}{Gensim}
+			\end{minipage}
+			\begin{minipage}{0.19\linewidth}
+				\centering
+				\includesvg[width=40pt, height=40pt]{./img/AllenNLP} \vfil
+				\vspace{3.75em}
+				\href{https://github.com/allenai/allennlp}{Allen NLP}
+			\end{minipage}
 	\end{frame}
 	
 	
@@ -572,14 +626,31 @@ BoldFont = *-Regular
 	\end{frame}
 
 	\begin{frame}{Entraînement, configuration et résultats}
-		\begin{itemize} % Camille : again logos...
-			\item MLFlow \cite{Zaharia2018AcceleratingTM}
-			\item Hydra \cite{Yadan2019Hydra}
-			\item Sacred \cite{sacred}
-			\item Notif \cite{notif}
-		\end{itemize}
-		
-	\end{frame}
+	\begin{minipage}{0.24\linewidth}
+		\centering
+		\includegraphics[width=40pt, height=40pt, keepaspectratio]{./img/MLflow} \vfil
+		\vspace{1.5em}
+		\href{https://mlflow.org/}{MLflow}
+	\end{minipage}
+	\begin{minipage}{0.24\linewidth}
+		\centering
+		\includesvg[width=40pt, height=40pt]{./img/hydra} \vfil
+		\vspace{2em}
+		\href{https://hydra.cc/}{Hydra}
+	\end{minipage}
+	\begin{minipage}{0.24\linewidth}
+		\centering
+		\fontsize{25}{25}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faGithub\vfill
+		\vspace{0.5em}
+		\normalsize\href{https://sacred.readthedocs.io/en/stable/}{Sacred}
+	\end{minipage}
+	\begin{minipage}{0.24\linewidth}
+		\centering
+		\fontsize{25}{25}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faGithub\vfill
+		\vspace{0.5em}
+		\normalsize\href{https://notificationdoc.ca/}{Notif}
+	\end{minipage}
+\end{frame}
 
 	\begin{frame}{Rapport et analyse des résultats}
 		\centering
@@ -613,13 +684,25 @@ BoldFont = *-Regular
 		}
 	\end{frame}
 
-
 	\begin{frame}{Rapport et analyse des résultats}
-		\begin{itemize} % Camille : et encore :-)
-			\item \href{https://github.com/jsleb333/python2latex}{Python2LaTeX}
-			\item \href{https://www.tensorflow.org/tensorboard}{TensorBoard}
-			\item \href{https://fr.wikipedia.org/wiki/Markdown}{Markdown}
-		\end{itemize}
+		\begin{minipage}{0.32\linewidth}
+			\centering
+			\fontsize{25}{25}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faGithub\vfill
+			\vspace{1em}
+			\normalsize\href{https://github.com/jsleb333/python2latex}{Python2LaTeX}
+		\end{minipage}
+		\begin{minipage}{0.32\linewidth}
+			\centering
+			\includesvg[width=40pt, height=40pt]{./img/tensorflow} \vfil
+			\vspace{1em}
+			\href{https://www.tensorflow.org/tensorboard?hl=fr}{TensorBoard}
+		\end{minipage}
+		\begin{minipage}{0.32\linewidth}
+			\centering
+			\includesvg[width=40pt, height=40pt]{./img/markdown} \vfil
+			\vspace{2em}
+			\href{https://fr.wikipedia.org/wiki/Markdown}{Markdown}
+		\end{minipage}
 	\end{frame}
 	
 	\begin{frame}{Environnement}
@@ -646,10 +729,19 @@ BoldFont = *-Regular
 	\end{frame}
 
 	\begin{frame}{Environnement}
-		\begin{itemize} % Camille : you know now ... 
-			\item \href{https://www.docker.com/}{Docker}
-		\end{itemize}
-	\end{frame}
+			\begin{minipage}{0.49\linewidth}
+				\centering
+				\includesvg[width=40pt, height=40pt]{./img/docker} \vfil
+				\vspace{1em}
+				\href{https://www.docker.com/}{Docker}
+			\end{minipage}
+			\begin{minipage}{0.49\linewidth}
+				\centering
+				\includesvg[width=40pt, height=40pt]{./img/Kubernetes} \vfil
+				\vspace{1em}
+				\href{https://kubernetes.io/fr/}{Kubernetes}
+			\end{minipage}
+		\end{frame}
 		
 	\section{La suite}
 	\begin{frame}
