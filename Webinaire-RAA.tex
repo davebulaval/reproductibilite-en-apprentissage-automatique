@@ -32,7 +32,7 @@
 
 \usepackage{fontawesome}
 
-\usepackage{stackengine} % for stacking logo
+\usepackage{stackengine, tikz} % for stacking logo
 
 \usepackage{svg} %for svg image also need option --shell-escape
 
@@ -206,7 +206,7 @@ BoldFont = *-Regular
 	\begin{frame}{Objectifs de la présentation}
 		\begin{itemize}
 			\item Sensibiliser sur les enjeux de la reproductibilité.
-			\item Inciter l'intégration des solutions permettant une meilleure reproductibilité dans vos solutions d'affaires ou académiques.
+			\item Inciter l'intégration des solutions permettant une meilleure reproductibilité dans vos solutions d'affaires et académiques.
 			\item Améliorer votre productivité.
 		\end{itemize}
 	\end{frame}
@@ -233,52 +233,53 @@ BoldFont = *-Regular
 			Département d'informatique et de génie logiciel
 		\end{minipage}
 	\end{frame}
+
+	\begin{frame}{Au menu}
+		\begin{minipage}{0.24\linewidth}
+				\centering
+				\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faFilesO \vfil
+				\vspace{1em}
+				\normalsize Gestion version
+		\end{minipage}
+		\begin{minipage}{0.24\linewidth}
+				\centering
+				\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faTachometer\vfil
+				\vspace{1em}
+				\normalsize Productivité
+				
+		\end{minipage}
+		\begin{minipage}{0.24\linewidth}
+				\centering
+				% Camille comment : Cette icone a un problème d'alignement ... 
+				\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faPencilSquareO\vfil
+				\vspace{1em}
+				\normalsize Présenter
+		\end{minipage}
+		\begin{minipage}{0.24\linewidth}
+				\centering
+				\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faRecycle\vfil
+				\vspace{1em}
+				\normalsize Réutiliser
+		\end{minipage}
+	\end{frame}
 	
 	\section{Introduction}
 	\begin{frame}{C'est quoi la reproductibilité ?}
 		La reproductibilité est le principe qu'on ne peut tirer de conclusions que d'un événement bien décrit, qui est apparu plusieurs fois, provoqué par des \textbf{personnes différentes}.
 		
 		Toutefois, ont utilise souvent ce terme pour spécifiquement désigner la \textbf{réplicabilité}. Soit la réplication (reproduction) des résultats d'un article dans des environnements pas (toujours) différents \cite{replicationvsreproductiblity, pineau2020improving}.
-	\end{frame}
-%La définition de reproductibilité est à revoir. Je pense que les points clés c'est l'idée que si une idée a de bons résultats, on devrait être capable de la reprendre et de retrouver les mêmes résultats. En ML, les idées c'est des algos et la reproductibilité devient juste d'être capable de s'assurer que les performances rapportées sont les mêmes. Aussi, la parenthèse avec la réplicabilité : la réplicabilité en ML le point clé c'est de réimplémenter un algo alors que la reproductibilité c'est juste genre rerouler le code from scratch et retrouver les perfos rapportées.
-	
-	\begin{frame}{Au menu}
-			\uncover<1->{\begin{minipage}{0.24\linewidth}
-				\centering
-				\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faCopy \vfil
-				\vspace{1em}
-				\normalsize Répliquer
-			\end{minipage}}
-			\uncover<2->{\begin{minipage}{0.24\linewidth}
-				\centering
-				\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faDatabase\vfil
-				\vspace{1em}
-				\normalsize Jeux de données
-				
-			\end{minipage}}
-				\uncover<3->{\begin{minipage}{0.24\linewidth}
-					\centering
-					% Camille comment : Cette icone a un problème d'alignement ... 
-					\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faCogs\vfil
-					\vspace{1em}
-					\normalsize Procédure d'entraînement
-			\end{minipage}}
-				\uncover<4->{\begin{minipage}{0.24\linewidth}
-					\centering
-					\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faCode\vfil
-					\vspace{1em}
-					\normalsize Code
-			\end{minipage}}
+		
 		\note{
 			
-		Être capable de \textbf{répliquer} les résultats d'un article d'un projet, 
-	
-		à partir du même \textbf{jeu de données} ou un jeu de données différent (mais proche), 
-		
-		en utilisant la \textbf{procédure d'entraînement} de l'article ou en utilisant notre procédure d'entrainement et 
-		
-		en utilisant le \textbf{code} du projet.}
+			Être capable de \textbf{répliquer} les résultats d'un article d'un projet, 
+			
+			à partir du même \textbf{jeu de données} ou un jeu de données différent (mais proche), 
+			
+			en utilisant la \textbf{procédure d'entraînement} de l'article ou en utilisant notre procédure d'entrainement et 
+			
+			en utilisant le \textbf{code} du projet.}
 	\end{frame}
+%La définition de reproductibilité est à revoir. Je pense que les points clés c'est l'idée que si une idée a de bons résultats, on devrait être capable de la reprendre et de retrouver les mêmes résultats. En ML, les idées c'est des algos et la reproductibilité devient juste d'être capable de s'assurer que les performances rapportées sont les mêmes. Aussi, la parenthèse avec la réplicabilité : la réplicabilité en ML le point clé c'est de réimplémenter un algo alors que la reproductibilité c'est juste genre rerouler le code from scratch et retrouver les perfos rapportées.
 	
 	\begin{frame}{Pourquoi s'y intéresser ?}
 		\centering
@@ -343,45 +344,45 @@ BoldFont = *-Regular
 	\end{frame}
 	
 	\section{Les barrières à la réplicabilité}
-		\begin{frame}		\def\ban{\fontsize{65}{65}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faBan}
-		\def\database{\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faDatabase}
-		\def\code{\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faCode}
-		\def\gear{\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faCog}
-		\centering
-		\uncover<1->{\begin{minipage}{0.24\linewidth}
-			\centering
-			\def\stackalignment{c}
-			\topinset{\database}{\rotatebox{90}{\ban}}{14pt}{-1pt}\vfil
-			\vspace{1em}
-			\normalsize Non-disponibilité des données
-		\end{minipage}}
-		\uncover<2->{\begin{minipage}{0.24\linewidth}
-				\centering
-				% Camille : encore le facogs qui gosse
-				\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faCogs\vfil
-				\vspace{1em}
-				\normalsize Mauvaise spécification
-		\end{minipage}}
-		\uncover<3->{\begin{minipage}{0.24\linewidth}
-				\centering
-				\def\stackalignment{c}
-				\topinset{\code}{\rotatebox{90}{\ban}}{14pt}{-1pt}\vfil
-				\vspace{1em}
-				\normalsize Non-disponibilité du code
-		\end{minipage}}
-		\uncover<4->{\begin{minipage}{0.24\linewidth}
-				\centering
-				\def\stackalignment{c}
-				\topinset{\gear}{\rotatebox{90}{\ban}}{14pt}{-1pt}\vfil
-				\vspace{1em}
-				\normalsize Non-disponibilité des configurations
-		\end{minipage}}
-	\note{Non-disponibilité du jeu de données ou \textbf{version} (pas claire) du jeu de données, 
-		\textbf{mauvaise spécification ou sous-spécification} du modèle et de la \textbf{procédure d'entraînement},
-		manque de \textbf{disponibilité du code} nécessaire pour exécuter les expériences, ou \textbf{erreurs} dans le code,
-		\textbf{configurations} du modèle déficientes
-	}
-	\end{frame}
+%		\begin{frame}		\def\ban{\fontsize{65}{65}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faBan}
+%		\def\database{\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faDatabase}
+%		\def\code{\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faCode}
+%		\def\gear{\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faCog}
+%		\centering
+%		\uncover<1->{\begin{minipage}{0.24\linewidth}
+%			\centering
+%			\def\stackalignment{c}
+%			\topinset{\database}{\rotatebox{90}{\ban}}{14pt}{-1pt}\vfil
+%			\vspace{1em}
+%			\normalsize Non-disponibilité des données
+%		\end{minipage}}
+%		\uncover<2->{\begin{minipage}{0.24\linewidth}
+%				\centering
+%				% Camille : encore le facogs qui gosse
+%				\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faCogs\vfil
+%				\vspace{1em}
+%				\normalsize Mauvaise spécification
+%		\end{minipage}}
+%		\uncover<3->{\begin{minipage}{0.24\linewidth}
+%				\centering
+%				\def\stackalignment{c}
+%				\topinset{\code}{\rotatebox{90}{\ban}}{14pt}{-1pt}\vfil
+%				\vspace{1em}
+%				\normalsize Non-disponibilité du code
+%		\end{minipage}}
+%		\uncover<4->{\begin{minipage}{0.24\linewidth}
+%				\centering
+%				\def\stackalignment{c}
+%				\topinset{\gear}{\rotatebox{90}{\ban}}{14pt}{-1pt}\vfil
+%				\vspace{1em}
+%				\normalsize Non-disponibilité des configurations
+%		\end{minipage}}
+%	\note{Non-disponibilité du jeu de données ou \textbf{version} (pas claire) du jeu de données, 
+%		\textbf{mauvaise spécification ou sous-spécification} du modèle et de la \textbf{procédure d'entraînement},
+%		manque de \textbf{disponibilité du code} nécessaire pour exécuter les expériences, ou \textbf{erreurs} dans le code,
+%		\textbf{configurations} du modèle déficientes
+%	}
+%	\end{frame}
 	
 	\begin{frame}
 		\begin{figure}
@@ -401,12 +402,36 @@ BoldFont = *-Regular
 	
 	\section{OK, mais comment?}
 	
-	\begin{frame}
-		\begin{figure}
+	\begin{frame}{Au menu}
+		\begin{minipage}{0.24\linewidth}
 			\centering
-			\includegraphics[scale=0.3]{img/cycle-2.png}
-			\caption{\href{https://eng.uber.com/scaling-michelangelo/}{From Uber Engineering}}
-		\end{figure}
+			\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faFilesO
+			\vfil
+			\vspace{0.35em}
+			\normalsize Gestion version
+		\end{minipage}
+		\begin{minipage}{0.24\linewidth}
+			\centering
+			\tikz\node[opacity=0.5]{\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faTachometer};
+			\vfil
+			\vspace{1em}
+			\normalsize Productivité
+			
+		\end{minipage}
+		\begin{minipage}{0.24\linewidth}
+			\centering
+			\tikz\node[opacity=0.5]{\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faPencilSquareO};
+			\vfil
+			\vspace{1em}
+			\normalsize Présenter
+		\end{minipage}
+		\begin{minipage}{0.24\linewidth}
+			\centering
+			\tikz\node[opacity=0.5]{\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faRecycle};
+			\vfil
+			\vspace{1em}
+			\normalsize Réutiliser
+		\end{minipage}
 	\end{frame}
 
 	\begin{frame}{Version des données \& Étapes de prétraitement}
@@ -514,6 +539,38 @@ BoldFont = *-Regular
 			\normalsize \href{https://bitbucket.org/}{Bitbucket}
 		\end{minipage}
 	\end{frame}
+
+	\begin{frame}{Au menu}
+		\begin{minipage}{0.24\linewidth}
+			\centering
+			\tikz\node[opacity=0.5]{\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faFilesO};
+			\vfil
+			\vspace{1em}
+			\normalsize Gestion version
+		\end{minipage}
+		\begin{minipage}{0.24\linewidth}
+			\centering
+			\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faTachometer
+			\vfil
+			\vspace{0.7em}
+			\normalsize Productivité
+			
+		\end{minipage}
+		\begin{minipage}{0.24\linewidth}
+			\centering
+			\tikz\node[opacity=0.5]{\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faPencilSquareO};
+			\vfil
+			\vspace{1.1em}
+			\normalsize Présenter
+		\end{minipage}
+		\begin{minipage}{0.24\linewidth}
+			\centering
+			\tikz\node[opacity=0.5]{\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faRecycle};
+			\vfil
+			\vspace{1em}
+			\normalsize Réutiliser
+		\end{minipage}
+	\end{frame}
 	
 	\subsection{Développement}
 	\begin{frame}{Développement des modèles}
@@ -536,7 +593,7 @@ BoldFont = *-Regular
 		\end{minipage}}
 		\uncover<3->{\begin{minipage}{0.32\linewidth}
 				\centering
-				\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faFastForward\vfil
+				\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faForward\vfil
 				\vspace{1em}
 				\normalsize Facilite
 		\end{minipage}}
@@ -651,6 +708,38 @@ BoldFont = *-Regular
 		\normalsize\href{https://notificationdoc.ca/}{Notif}
 	\end{minipage}
 \end{frame}
+	
+	\begin{frame}{Au menu}
+		\begin{minipage}{0.24\linewidth}
+			\centering
+			\tikz\node[opacity=0.5]{\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faFilesO};
+			\vfil
+			\vspace{1em}
+			\normalsize Gestion version
+		\end{minipage}
+		\begin{minipage}{0.24\linewidth}
+			\centering
+			\tikz\node[opacity=0.5]{\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faTachometer};
+			\vfil
+			\vspace{1em}
+			\normalsize Productivité
+			
+		\end{minipage}
+		\begin{minipage}{0.24\linewidth}
+			\centering
+			\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faPencilSquareO
+			\vfil
+			\vspace{0.55em}
+			\normalsize Présenter
+		\end{minipage}
+		\begin{minipage}{0.24\linewidth}
+			\centering
+			\tikz\node[opacity=0.5]{\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faRecycle};
+			\vfil
+			\vspace{1em}
+			\normalsize Réutiliser
+		\end{minipage}
+	\end{frame}
 
 	\begin{frame}{Rapport et analyse des résultats}
 		\centering
@@ -702,6 +791,38 @@ BoldFont = *-Regular
 			\includesvg[width=40pt, height=40pt]{./img/markdown} \vfil
 			\vspace{2em}
 			\href{https://fr.wikipedia.org/wiki/Markdown}{Markdown}
+		\end{minipage}
+	\end{frame}
+
+	\begin{frame}{Au menu}
+		\begin{minipage}{0.24\linewidth}
+			\centering
+			\tikz\node[opacity=0.5]{\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faFilesO};
+			\vfil
+			\vspace{1em}
+			\normalsize Gestion version
+		\end{minipage}
+		\begin{minipage}{0.24\linewidth}
+			\centering
+			\tikz\node[opacity=0.5]{\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faTachometer};
+			\vfil
+			\vspace{1.1em}
+			\normalsize Productivité
+			
+		\end{minipage}
+		\begin{minipage}{0.24\linewidth}
+			\centering
+			\tikz\node[opacity=0.5]{\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faPencilSquareO};
+			\vfil
+			\vspace{1.1em}
+			\normalsize Présenter
+		\end{minipage}
+		\begin{minipage}{0.24\linewidth}
+			\centering
+			\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faRecycle
+			\vfil
+			\vspace{0.35em}
+			\normalsize Réutiliser
 		\end{minipage}
 	\end{frame}
 	
