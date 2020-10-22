@@ -73,8 +73,8 @@
 %% Format de la page de titre de section;
 \makeatletter
 \setbeamertemplate{section page}{%
-	\begin{textblock*}{92.5mm}[1,1](160mm,90mm)
-		\includegraphics[height=\paperheight,keepaspectratio]{img/Élément2_PPT}
+	\begin{textblock*}{92.5mm}[1,1](187mm,90mm)
+		\includegraphics[height=\paperheight,keepaspectratio, angle=180,origin=c]{img/degrade-coin-rouge}
 	\end{textblock*}
 	\begin{minipage}{22em}
 		\raggedright
@@ -187,18 +187,6 @@ BoldFont = *-Regular
 \begin{document}
 	
 	%% Style de l'entête et du pied de page
-	\setbeamertemplate{headline}{%
-		\ifnum\insertframenumber>1\relax%
-		\begin{textblock*}{17mm}(0mm,0mm)
-			\includegraphics[width=\linewidth,keepaspectratio]{img/Élément4_PPT}
-		\end{textblock*}
-		\fi}
-	\setbeamertemplate{footline}{%
-		\ifnum\insertframenumber>1\relax%
-		\begin{textblock*}{24.5mm}[1,1](160mm,90mm)
-			\includegraphics[width=\linewidth,keepaspectratio]{img/Élément3_PPT}
-		\end{textblock*}
-		\fi}
 	
 	%% frontmatter
 	\input{couverture-avant}
