@@ -1,9 +1,13 @@
-%%% Copyright (C) 2020 Vincent Goulet
+%%% Copyright (C) 2020 David Beauchemin
 %%%
-%%% Ce fichier fait partie du projet «Maman, j'ai (encore) perdu les
-%%% résultats de mon rapport! - Webinaire de la Formation continue
-%%% FSG»
-%%% https://gitlab.com/vigou3/webinaire-recherche-reproductible
+%%% Ce fichier et tous les fichiers .tex dont la racine est
+%%% mentionnée dans les commandes \include et \input ci-dessous font
+%%% partie du projet «Reproductibilité en apprentissage automatique
+%%% - Webinaire de l'institut intelligence et données»
+%%% URL
+%%%
+%%% Le format et le visuel est très fortement inspiré du matériel de
+%%% Vincent Goulet https://gitlab.com/vigou3/webinaire-recherche-reproductible
 %%%
 %%% Cette création est mise à disposition selon le contrat
 %%% Attribution-Partage dans les mêmes conditions 4.0
@@ -81,9 +85,9 @@
   \end{textblock*}
 
   %% image droite
-  \begin{textblock*}{0.560261\imageheight}[1,0](160mm,0mm)
-    \includegraphics[height=\imageheight,keepaspectratio]{%
-      img/Élément1_PPT}
+  \begin{textblock*}{0.560261\imageheight}[1,0](147mm,0mm)
+    \includegraphics[height=\imageheight,keepaspectratio, angle=180,origin=c]{%
+      img/degrade-coin-rouge}
   \end{textblock*}
 
   %% identifiant «webinaire»
@@ -93,7 +97,7 @@
 
   %% titre
   \begin{textblock*}{10\TPHorizModule}(0.7\TPHorizModule,17\TPVertModule)
-    \textcolor[rgb]{0,0.29,0.37}{\titlefmt}
+    \textcolor[cmyk]{0.67, 0.66, 0, 0.71}{\titlefmt}
   \end{textblock*}
 
   %% date

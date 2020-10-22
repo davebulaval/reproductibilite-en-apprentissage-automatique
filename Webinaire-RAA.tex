@@ -1,10 +1,13 @@
 %%% Copyright (C) 2020 David Beauchemin
 %%%
-%%% Ce fichier et tous les fichiers .tex ou .Rnw dont la racine est
+%%% Ce fichier et tous les fichiers .tex dont la racine est
 %%% mentionnée dans les commandes \include et \input ci-dessous font
-%%% partie du projet «Maman, j'ai (encore) perdu les résultats de mon
-%%% rapport! - Webinaire de la Formation continue FSG»
-%%% https://gitlab.com/vigou3/webinaire-recherche-reproductible
+%%% partie du projet «Reproductibilité en apprentissage automatique
+%%% - Webinaire de l'institut intelligence et données»
+%%% URL
+%%%
+%%% Le format et le visuel est très fortement inspiré du matériel de
+%%% Vincent Goulet https://gitlab.com/vigou3/webinaire-recherche-reproductible
 %%%
 %%% Cette création est mise à disposition selon le contrat
 %%% Attribution-Partage dans les mêmes conditions 4.0
@@ -26,6 +29,10 @@
 \usepackage[overlay,absolute]{textpos} % couvertures
 \usepackage{metalogo}       
 \usepackage{textpos}           % logo \XeLaTeX
+
+\usepackage{fontawesome}
+
+\usepackage{stackengine} % for stacking logo
 
 %% =============================
 %%  Informations de publication
@@ -60,9 +67,7 @@
 \renewcommand{\metropolis@frametitlestrut@end}{}
 \makeatother
 
-%% Format de la page de titre de section; redéfinition pour insérer
-%% la décoration du CFDD, aligner le titre à gauche et désactiver
-%% l'hyperlien (https://tex.stackexchange.com/a/183357)
+%% Format de la page de titre de section;
 \makeatletter
 \setbeamertemplate{section page}{%
 	\begin{textblock*}{92.5mm}[1,1](160mm,90mm)
@@ -71,7 +76,7 @@
 	\begin{minipage}{22em}
 		\raggedright
 		\usebeamerfont{section title}
-		\let\hyperlink\@secondoftwo\textcolor[rgb]{0,0.29,0.37}{\insertsectionhead}\par
+		\let\hyperlink\@secondoftwo\textcolor[cmyk]{0.67, 0.66, 0, 0.71}{\insertsectionhead}\par
 	\end{minipage}
 	\par
 	\vspace{\baselineskip}
@@ -97,9 +102,9 @@ BoldFont = *-Regular
 ]
 
 %% Couleurs additionnelles
-\definecolor{comments}{rgb}{0.7,0,0}  % rouge foncé
-\definecolor{link}{rgb}{0,0.4,0.6}    % liens internes
-\definecolor{url}{rgb}{0.6,0,0}       % liens externes
+\definecolor{comments}{cmyk}{0,1, 1, 0}   % rouge foncé
+\definecolor{link}{cmyk}{0.67, 0.66, 0, 0.71}    % liens internes
+\definecolor{url}{cmyk}{0,1, 1, 0}       % liens externes
 \definecolor{codebg}{named}{LightYellow1} % fond code R
 \definecolor{rouge}{rgb}{0.85,0,0.07} % bandeau rouge UL
 \definecolor{or}{rgb}{1,0.8,0}        % bandeau or UL
@@ -108,10 +113,15 @@ BoldFont = *-Regular
 \colorlet{code}{mLightGreen}  % alias pour couleur Metropolis
 \colorlet{shadecolor}{codebg}
 
+
+\definecolor{titre}{cmyk}{0.67, 0.66, 0, 0.71}
+\setbeamercolor{frametitle}{fg=titre}
+\setbeamercolor{section in head/foot}{fg=titre}
+
 %% Hyperliens
 \hypersetup{%
-	pdfauthor = {Vincent Goulet},
-	pdftitle = {Introduction à la science des données},
+	pdfauthor = {David Beauchemin},
+	pdftitle = {Reproductibilité en apprentissage automatique},
 	colorlinks = {true},
 	linktocpage = {true},
 	allcolors = {link},
@@ -154,10 +164,6 @@ BoldFont = *-Regular
 %% Lien externe
 \newcommand{\link}[2]{\href{#1}{#2~{\smaller\faExternalLink*}}}
 
-%% Renvoi vers GitLab sur la page de copyright
-\newcommand{\viewsource}[1]{%
-	\href{#1}{\faGitlab\ Voir sur GitLab}}
-
 %% Simili commande \HUGE
 \newcommand{\HUGE}{\fontsize{36}{36}\selectfont}
 
@@ -177,10 +183,7 @@ BoldFont = *-Regular
 
 \begin{document}
 	
-	%% Style de l'entête et du pied de page: ajout des décorations du
-	%% gabarit CFDD. Je ne sais pas pourquoi, mais si ces définitions se
-	%% trouvent dans le préambule, le texte des diapos est déplacé vers le
-	%% bas.
+	%% Style de l'entête et du pied de page
 	\setbeamertemplate{headline}{%
 		\ifnum\insertframenumber>1\relax%
 		\begin{textblock*}{17mm}(0mm,0mm)
@@ -232,38 +235,111 @@ BoldFont = *-Regular
 	\begin{frame}{C'est quoi la reproductibilité ?}
 		La reproductibilité est le principe qu'on ne peut tirer de conclusions que d'un événement bien décrit, qui est apparu plusieurs fois, provoqué par des \textbf{personnes différentes}.
 		
-		Toutefois, on utilise souvent ce terme pour spécifiquement désigner la \textbf{réplicabilité}. Soit la réplication (reproduction) des résultats d'un article dans des environnements pas (toujours) différents \cite{replicationvsreproductiblity, pineau2020improving}.
+		Toutefois, ont utilise souvent ce terme pour spécifiquement désigner la \textbf{réplicabilité}. Soit la réplication (reproduction) des résultats d'un article dans des environnements pas (toujours) différents \cite{replicationvsreproductiblity, pineau2020improving}.
 	\end{frame}
+%La définition de reproductibilité est à revoir. Je pense que les points clés c'est l'idée que si une idée a de bons résultats, on devrait être capable de la reprendre et de retrouver les mêmes résultats. En ML, les idées c'est des algos et la reproductibilité devient juste d'être capable de s'assurer que les performances rapportées sont les mêmes. Aussi, la parenthèse avec la réplicabilité : la réplicabilité en ML le point clé c'est de réimplémenter un algo alors que la reproductibilité c'est juste genre rerouler le code from scratch et retrouver les perfos rapportées.
 	
 	\begin{frame}{En somme}
-		\begin{itemize}
-			\item<1-> Être capable de \textbf{répliquer} les résultats d'un article/ d'un projet,
-			\item<2-> à partir du \textbf{même jeu de données} ou un jeu de données différent (mais proche),
-			\item<3-> en utilisant la \textbf{procédure d'entrainement} de l'article ou en utilisant notre procédure d'entrainement et
-			\item<4-> en utilisant le \textbf{code du projet}.
-		\end{itemize}
+		\centering
+			\uncover<1->{\begin{minipage}{0.24\linewidth}
+					\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faCopy
+			\end{minipage}}
+				\uncover<2->{\begin{minipage}{0.24\linewidth}
+				\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faDatabase
+			\end{minipage}}
+				\uncover<3->{\begin{minipage}{0.24\linewidth}
+				\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faCogs
+			\end{minipage}}
+				\uncover<4->{\begin{minipage}{0.24\linewidth}
+				\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faCode
+			\end{minipage}}
+		\note{
+			
+		Être capable de \textbf{répliquer} les résultats d'un article d'un projet, 
+	
+		à partir du même \textbf{jeu de données} ou un jeu de données différent (mais proche), 
+		
+		en utilisant la \textbf{procédure d'entrainement} de l'article ou en utilisant notre procédure d'entrainement et 
+		
+		en utilisant le \textbf{code} du projet.}
 	\end{frame}
 	
+	\begin{frame}{Pourquoi s'y intéresser?}
+		\centering
+		\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71} 70~\%\footnote[1]{\cite{baker500ScientistsLift2016}}
+		
+		\note{
+			$70$~\% des chercheurs en science on échoué dans leur tentative de reproduire un article d'un autre chercheur
+		}
+	\end{frame}
+
 	\begin{frame}{Pourquoi s'y intéressé?}
-		\begin{itemize}
-			\item<1-> $70$~\% des chercheurs en science on échoué dans leur tentative de reproduire un article d'un autre chercheur,
-			\item<2-> ~$50$~\% n'ont pas réussit à reproduire leurs \textbf{propres} expérimentations \cite{baker500ScientistsLift2016}.
-		\end{itemize}
-		\uncover<3->{L'informatique ne fait pas exception à cela malgré la simplicité (théorique) de réplication des résultats. Selon une étude, sur 255 articles près de $40$~\% n'était pas réplicable \cite{raff2019step}.}
+	\centering
+	\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71} 50~\%\footnote[1]{\cite{baker500ScientistsLift2016}}
+
+		
+		\note{
+			$50$~\% n'ont pas réussit à reproduire leurs \textbf{propres} expérimentations
+			
+			L'informatique ne fait pas exception à cela malgré la simplicité (théorique) de réplication des résultats. Selon une étude, sur \textbf{255} articles, près de $40$~\% n'étaient pas réplicable \cite{raff2019step}.
+		}
+	
+	\end{frame}
+
+	\begin{frame}{Pourquoi s'y intéressé?}
+		\centering
+		\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71} 40~\%\footnote[2]{\cite{raff2019step}}
+		
+		
+		\note{
+			L'informatique ne fait pas exception à cela malgré la simplicité (théorique) de réplication des résultats. Selon une étude, sur \textbf{255} articles, près de $40$~\% n'étaient pas réplicable \cite{raff2019step}.
+		}
+		
 	\end{frame}
 	
 	\begin{frame}{Motivation}
-		La reproductibilité facilite la réutilisation pour d'autres projets de recherche, améliorer votre productibilité \textbf{et} permet le transfert vers l'industrie (plus facilement). 
+		\centering
+		\uncover<1->{\begin{minipage}{0.24\linewidth}
+				\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faRecycle
+		\end{minipage}}
+		\uncover<2->{\begin{minipage}{0.24\linewidth}
+				\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faForward
+		\end{minipage}}
+		\uncover<3->{\begin{minipage}{0.24\linewidth}
+				\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faShare
+		\end{minipage}}
+		\uncover<4->{\begin{minipage}{0.24\linewidth}
+				\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faMapPin
+		\end{minipage}}
+		\note{La reproductibilité facilite la \textbf{réutilisation} pour d'autres projets de recherche, améliorer votre productivité \textbf{et} permet le transfert vers l'industrie (plus facilement). En bonus, cela aide à vous faire connaître si vous faites du contenu réutilisable par la communauté.}
 	\end{frame}
 	
 	\section{Les barrières à la réplicabilité}
-	\begin{frame}
-		\begin{itemize}
-			\item<1-> Non-disponibilité du jeu de données ou \textbf{version} (pas clair) du jeu de données, 
-			\item<2-> \textbf{mauvaise spécification ou sous-spécification} du modèle et de la \textbf{procédure d'entraînement},
-			\item<3-> manque de \textbf{disponibilité du code} nécessaire pour exécuter les expériences, ou \textbf{erreurs} dans le code,
-			\item<4-> \textbf{configurations} du modèle déficientes \cite{pineau2020improving}\footnote{Liste sélective}.
-		\end{itemize}
+		\begin{frame}		\def\ban{\fontsize{65}{65}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faBan}
+		\def\database{\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faDatabase}
+		\def\code{\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faCode}
+		\def\gear{\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faCog}
+		\centering
+		\uncover<1->{\begin{minipage}{0.24\linewidth}
+			\def\stackalignment{c}
+			\topinset{\database}{\rotatebox{90}{\ban}}{14pt}{-1pt}
+		\end{minipage}}
+		\uncover<2->{\begin{minipage}{0.24\linewidth}
+				\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faCogs
+		\end{minipage}}
+		\uncover<3->{\begin{minipage}{0.24\linewidth}
+				\def\stackalignment{c}
+				\topinset{\code}{\rotatebox{90}{\ban}}{14pt}{-1pt}
+		\end{minipage}}
+		\uncover<4->{\begin{minipage}{0.24\linewidth}
+				\def\stackalignment{c}
+				\topinset{\gear}{\rotatebox{90}{\ban}}{14pt}{-1pt}
+		\end{minipage}}
+	\note{Non-disponibilité du jeu de données ou \textbf{version} (pas claire) du jeu de données, 
+		\textbf{mauvaise spécification ou sous-spécification} du modèle et de la \textbf{procédure d'entraînement},
+		manque de \textbf{disponibilité du code} nécessaire pour exécuter les expériences, ou \textbf{erreurs} dans le code,
+		\textbf{configurations} du modèle déficientes
+	}
 	\end{frame}
 	
 	\begin{frame}
@@ -291,68 +367,201 @@ BoldFont = *-Regular
 			\caption{\href{https://eng.uber.com/scaling-michelangelo/}{From Uber Engineering}}
 		\end{figure}
 	\end{frame}
-	\subsection{Données}
+
+	\begin{frame}{Version des données \& Étapes de prétraitement}
+		\centering
+		\uncover<1->{\begin{minipage}{0.32\linewidth}
+				\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faCopy
+		\end{minipage}}
+		\uncover<2->{\begin{minipage}{0.32\linewidth}
+				\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faServer
+		\end{minipage}}
+		\uncover<3->{\begin{minipage}{0.32\linewidth}
+				\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faRoad
+		\end{minipage}}
+		\note{
+			Avec quelle version des données doit-on travailler?
+			
+			Comment gérer \textbf{facilement} plusieurs versions des données?
+			
+			Comment définir \textbf{facilement} les étapes de pré procession des données?
+			
+			Il nous faut des \textit{\textbf{data pipelines}}, des tuyaux que nous pouvons \textbf{facilement} raccorder à nos modèles pour l'entrainement et la mise en production.
+		
+			Il faut somewhat voir nos données comme du code et qu'à chaque fois qu'on fait du traitement sur notre data c'est comme modifier notre codebase et c'est impératif d'avoir une trace, par exemple ...
+		}
+		
+	\end{frame}
+
 	\begin{frame}{Version des données \& Étapes de pré procession}
 		\begin{itemize}
-			\item<1-> Avec qu'elle version des données doit-on travailler?
-			\item<2-> Comment gérer \textbf{facilement} plusieurs versions des données?
-			\item<3-> Comment définir \textbf{facilement} les étapes de pré procession des données?
+			\item Data Version Control (\href{https://dvc.org/}{DVC})
+			\item Dask \cite{dask}
 		\end{itemize}
-		\uncover<4->{Il nous faut des \textit{\textbf{data pipelines}}, des tuyaux que nous pouvons raccorder \textbf{facilement} à nos modèles pour l'entrainement et la mise en production, par exemple, Data Version Control (\href{https://dvc.org/}{DVC}).}
 	\end{frame}
 	
-	\subsection{Codes}
-	\begin{frame}{Version du code}
+	\begin{frame}{Code}
+		\centering
+		\uncover<1->{\begin{minipage}{0.32\linewidth}
+				\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faCopy
+		\end{minipage}}
+		\uncover<2->{\begin{minipage}{0.32\linewidth}
+				\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faList
+		\end{minipage}}
+		\uncover<3->{\begin{minipage}{0.32\linewidth}
+				\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faCodeFork
+		\end{minipage}}
+		\note{
+			Avec quelle version du code doit-on travailler?
+			
+			Comment savoir \textbf{rapidement} qu'elle est la différence d'implémentation entre deux versions du modèle?
+			
+			Comment gérer \textbf{facilement} les divergences d'expérimentations?
+			
+			Il nous faut un outil nous permettant de \textbf{visualiser} la différence entre des fichiers de code et nous permettant d'avoir \textbf{plusieurs} versions du code en même temps, par exemple ...
+		}
+	\end{frame}
+
+	\begin{frame}{Code}
 		\begin{itemize}
-			\item<1-> Avec qu'elle version du code doit-on travailler?
-			\item<2-> Comment savoir \textbf{rapidement} qu'elle est la différence d'implémentation entre deux versions du modèle?
-			\item<3-> Comment gérer \textbf{facilement} les embranchements d'expérimentations?
+			\item \href{https://git-scm.com/}{Git}
 		\end{itemize}
-		\uncover<4->{Il nous faut un outil nous permettant de \textbf{visualiser} la différence entre des fichiers de code et nous permettant d'avoir \textbf{plusieurs} versions du code \textbf{\guillemotleft en même temps \guillemotright}, par exemple, \href{https://git-scm.com/}{Git}.}
 	\end{frame}
 	
 	\subsection{Développement}
 	\begin{frame}{Développement des modèles}
-		\begin{itemize}
-			\item<1-> Ne pas réinventer la roue.
-			\item<2-> Simplifier l'écriture de code pour développer des modèles.
-			\item<3-> Qui facilite l'entrainement (GPU, multi-GPU/CPU).
-		\end{itemize}
-		\uncover<4->{Il nous faut des outils nous permettant de \textbf{simplifier} le \textbf{développement} de nos modèles, par exemple, Poutyne \cite{poutyne}, PyTorch Lightning \cite{falcon2019pytorch}, Scikit-Learn \cite{sklearn_api}, Gensim \cite{rehurek_lrec} et Allen NLP \cite{Gardner2017AllenNLP}.}
+		\def\ban{\fontsize{65}{65}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faBan}
+		\def\tool{\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faWrench}
+		\centering
+		\uncover<1->{\begin{minipage}{0.32\linewidth}
+				\def\stackalignment{c}
+				\topinset{\tool}{\rotatebox{90}{\ban}}{14pt}{-1pt}
+		\end{minipage}}
+		\uncover<2->{\begin{minipage}{0.32\linewidth}
+				\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faMinusSquareO
+		\end{minipage}}
+		\uncover<3->{\begin{minipage}{0.32\linewidth}
+				\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faFastForward
+		\end{minipage}}
+		\note{
+			Ne pas réinventer la roue.
+			
+			Simplifier l'écriture de code pour développer des modèles.
+			
+			Qui facilite l'entrainement (GPU, multi-GPU/CPU).
+			
+			Il nous faut des outils nous permettant de \textbf{simplifier} le \textbf{développement} de nos modèles, par exemple ...
+		}
 	\end{frame}
+
+	\begin{frame}{Développement des modèles}
+		\begin{itemize}
+			\item Poutyne \cite{poutyne}
+			\item PyTorch Lightning \cite{falcon2019pytorch}
+			\item Scikit-Learn \cite{sklearn_api}
+			\item Gensim \cite{rehurek_lrec}
+			\item Allen NLP \cite{Gardner2017AllenNLP}
+		\end{itemize}
+	\end{frame}
+	
 	
 	\begin{frame}{Entraînement, configuration et résultats}
-		\begin{itemize}
-			\item<1-> Avec qu'elle version du code, du modèle et des données avons-nous fait cet entrainement?
-			\item<2-> Quels sont les résultats?
-			\item<3-> Comment visualiser \textbf{rapidement} les résultats et les paramètres de configuration?
-		\end{itemize}
-		\uncover<4->{Il nous faut des outils nous permettant de \textit{\textbf{logger}} les \textbf{paramètres} d'entrainement et les \textbf{résultats}, par exemple, MLFlow \cite{Zaharia2018AcceleratingTM} et Sacred \cite{sacred}.}
+		\centering
+		\uncover<1->{\begin{minipage}{0.24\linewidth}
+				\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faCodeFork
+		\end{minipage}}
+		\uncover<2->{\begin{minipage}{0.24\linewidth}
+				\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faAreaChart
+		\end{minipage}}
+		\uncover<3->{\begin{minipage}{0.24\linewidth}
+				\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faCog
+		\end{minipage}}
+		\uncover<4->{\begin{minipage}{0.24\linewidth}
+			\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faTimesCircleO
+	\end{minipage}}
+
+		\note{
+			Avec quelle version du code, du modèle et des données avons-nous fait cet entrainement?
+			
+			Quels sont les résultats?
+			
+			Comment visualiser \textbf{rapidement} les résultats et les paramètres de configuration?
+			
+			Il nous faut des outils nous permettant de \textit{\textbf{logger}} les \textbf{paramètres} d'entrainement et les \textbf{résultats}, par exemple, ...
+		
+	}
 	\end{frame}
-	
+
+	\begin{frame}{Entraînement, configuration et résultats}
+		\begin{itemize}
+			\item MLFlow \cite{Zaharia2018AcceleratingTM}
+			\item Hydra \cite{Yadan2019Hydra}
+			\item Sacred \cite{sacred}
+			\item Notif \cite{notif}
+		\end{itemize}
+		
+	\end{frame}
+
+	\begin{frame}{Rapport et analyse des résultats}
+		\centering
+		\uncover<1->{\begin{minipage}{0.32\linewidth}
+				\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faTable
+		\end{minipage}}
+		\uncover<2->{\begin{minipage}{0.32\linewidth}
+				\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faCalendar
+		\end{minipage}}
+		\uncover<3->{\begin{minipage}{0.32\linewidth}
+				\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faAreaChart
+		\end{minipage}}
+		
+		\note{
+			Comment créer des tableaux de résultats \textbf{facilement} (pas à la \textit{mitaine})?
+			
+			Comment s'assurer \textbf{facilement} que les résultats sont à jours?
+			
+			Comment visualiser \textbf{rapidement} les résultats et les paramètres de configuration?
+			
+			Il nous faut des outils nous permettant de \textbf{créer} des tableaux de résultats \textbf{à même les résultats}, soit de diminuer le plus possible le travail manuel, par exemple ...
+		}
+	\end{frame}
+
+
 	\begin{frame}{Rapport et analyse des résultats}
 		\begin{itemize}
-			\item<1-> Comment créer des tableaux de résultats \textbf{facilement} (pas à la \textit{mitaine})?
-			\item<2-> Comment s'assurer \textbf{facilement} que les résultats sont à jours?
-			\item<3-> Comment visualiser \textbf{rapidement} les résultats et les paramètres de configuration?
+			\item \href{https://github.com/jsleb333/python2latex}{Python2LaTeX}
+			\item \href{https://www.tensorflow.org/tensorboard}{TensorBoard}
+			\item \href{https://fr.wikipedia.org/wiki/Markdown}{Markdown}
 		\end{itemize}
-		\uncover<4->{Il nous faut des outils nous permettant de \textbf{créer} des tableaux de résultats \textbf{à même les résultats}, soit de diminuer le plus possible le travail manuel, par exemple, \href{https://github.com/jsleb333/python2latex}{Python2LaTeX} et \href{https://fr.wikipedia.org/wiki/Markdown}{Markdown} .}
 	\end{frame}
 	
-	\begin{frame}{Dockerisation}
+	\begin{frame}{Environnement}
+		
+		\centering
+		\uncover<1->{\begin{minipage}{0.49\linewidth}
+				\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faFileArchiveO
+		\end{minipage}}
+		\uncover<2->{\begin{minipage}{0.49\linewidth}
+				\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faRecycle
+		\end{minipage}}
+		
+		\note{
+			Comment s'assurer que nos modèles fonctionnent sur d'autres environnements?
+			
+			Comment faciliter la réutilisation de notre code?
+			}
+	\end{frame}
+
+	\begin{frame}{Environnement}
 		\begin{itemize}
-			\item<1-> Comment s'assurer que nos modèles fonctionnent sur d'autres environnements?
-			\item<2-> Comment faciliter la réutilisation de notre code?
+			\item \href{https://www.docker.com/}{Docker}
 		\end{itemize}
-		\uncover<3->{\href{https://www.docker.com/}{Docker}!}
 	\end{frame}
-	
-	%https://gitlab.com/vigou3/webinaire-recherche-reproductible
-	
-	
+		
 	\section{La suite}
+	\centering
 	\begin{frame}
-		Développer des processus rigoureux (par essai et erreur) et ne pas prendre tout ce qui a été discuté ici comme l'unique solution.
+		\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faRefresh
+		\note{Développer des processus rigoureux (par essais, erreurs et journaux) et ne pas prendre tout ce qui a été discuté ici comme l'unique solution.}
 	\end{frame}
 	
 	\begin{frame}{Pour aller plus loin}
@@ -361,6 +570,8 @@ BoldFont = *-Regular
 			\item \href{https://github.com/iterative/cml}{Continuous Machine Learning}
 			\item Faire des tests!
 			\item Writing Code for NLP Research \cite{gardner-etal-2018-writing}
+			\item \href{https://www.youtube.com/watch?v=t86v3N4OshQ&list=LLFp5G_2HoipBrGaw9iAcPPw&index=693}{SOLID}
+			\item Cet article \cite{pineau2020improving}
 		\end{itemize}
 	\end{frame}
 	
@@ -368,10 +579,12 @@ BoldFont = *-Regular
 		\frametitle{Période de questions}
 		
 		\centering
-		\fontsize{100}{100}\selectfont
+		\fontsize{100}{100}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}
 		\faQuestion
 		
 	\end{frame}
+
+	\input{couverture-arriere}
 	
 	\begin{frame}[t, allowframebreaks]
 		\frametitle{References}
@@ -379,7 +592,6 @@ BoldFont = *-Regular
 		\bibliography{RAA}
 	\end{frame}
 	
-	\input{couverture-arriere}
 	
 	
 \end{document}
