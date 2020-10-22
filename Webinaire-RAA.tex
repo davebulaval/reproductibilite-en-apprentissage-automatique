@@ -239,19 +239,27 @@ BoldFont = *-Regular
 	\end{frame}
 %La définition de reproductibilité est à revoir. Je pense que les points clés c'est l'idée que si une idée a de bons résultats, on devrait être capable de la reprendre et de retrouver les mêmes résultats. En ML, les idées c'est des algos et la reproductibilité devient juste d'être capable de s'assurer que les performances rapportées sont les mêmes. Aussi, la parenthèse avec la réplicabilité : la réplicabilité en ML le point clé c'est de réimplémenter un algo alors que la reproductibilité c'est juste genre rerouler le code from scratch et retrouver les perfos rapportées.
 	
-	\begin{frame}{En somme}
-		\centering
+	\begin{frame}{Au menu}
 			\uncover<1->{\begin{minipage}{0.24\linewidth}
-					\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faCopy
+				\centering
+				\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faCopy \vfil
+				\normalsize Répliquer
 			\end{minipage}}
-				\uncover<2->{\begin{minipage}{0.24\linewidth}
-				\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faDatabase
+			\uncover<2->{\begin{minipage}{0.24\linewidth}
+				\centering
+				\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faDatabase\vfil
+				\normalsize Jeux de données
+				
 			\end{minipage}}
 				\uncover<3->{\begin{minipage}{0.24\linewidth}
-				\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faCogs
+					\centering
+					\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faCogs\vfil
+					\normalsize Procédure d'entraînement
 			\end{minipage}}
 				\uncover<4->{\begin{minipage}{0.24\linewidth}
-				\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faCode
+					\centering
+					\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faCode\vfil
+					\normalsize Code
 			\end{minipage}}
 		\note{
 			
@@ -259,7 +267,7 @@ BoldFont = *-Regular
 	
 		à partir du même \textbf{jeu de données} ou un jeu de données différent (mais proche), 
 		
-		en utilisant la \textbf{procédure d'entrainement} de l'article ou en utilisant notre procédure d'entrainement et 
+		en utilisant la \textbf{procédure d'entraînement} de l'article ou en utilisant notre procédure d'entrainement et 
 		
 		en utilisant le \textbf{code} du projet.}
 	\end{frame}
@@ -300,16 +308,24 @@ BoldFont = *-Regular
 	\begin{frame}{Motivation}
 		\centering
 		\uncover<1->{\begin{minipage}{0.24\linewidth}
-				\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faRecycle
+				\centering
+				\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faRecycle\vfil
+				\normalsize Réutilisation
 		\end{minipage}}
 		\uncover<2->{\begin{minipage}{0.24\linewidth}
-				\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faForward
+				\centering
+				\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faForward\vfil
+				\normalsize Productivité
 		\end{minipage}}
 		\uncover<3->{\begin{minipage}{0.24\linewidth}
-				\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faShare
+				\centering
+				\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faShare\vfil
+				\normalsize Transfert
 		\end{minipage}}
 		\uncover<4->{\begin{minipage}{0.24\linewidth}
-				\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faMapPin
+				\centering
+				\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faMapPin\vfil
+				\normalsize Se faire connaître
 		\end{minipage}}
 		\note{La reproductibilité facilite la \textbf{réutilisation} pour d'autres projets de recherche, améliorer votre productivité \textbf{et} permet le transfert vers l'industrie (plus facilement). En bonus, cela aide à vous faire connaître si vous faites du contenu réutilisable par la communauté.}
 	\end{frame}
@@ -321,19 +337,27 @@ BoldFont = *-Regular
 		\def\gear{\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faCog}
 		\centering
 		\uncover<1->{\begin{minipage}{0.24\linewidth}
+			\centering
 			\def\stackalignment{c}
-			\topinset{\database}{\rotatebox{90}{\ban}}{14pt}{-1pt}
+			\topinset{\database}{\rotatebox{90}{\ban}}{14pt}{-1pt}\vfil
+			\normalsize Non-disponibilité des données
 		\end{minipage}}
 		\uncover<2->{\begin{minipage}{0.24\linewidth}
-				\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faCogs
+				\centering
+				\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faCogs\vfil
+				\normalsize Mauvaise spécification
 		\end{minipage}}
 		\uncover<3->{\begin{minipage}{0.24\linewidth}
+				\centering
 				\def\stackalignment{c}
-				\topinset{\code}{\rotatebox{90}{\ban}}{14pt}{-1pt}
+				\topinset{\code}{\rotatebox{90}{\ban}}{14pt}{-1pt}\vfil
+				\normalsize Non-disponibilité du code
 		\end{minipage}}
 		\uncover<4->{\begin{minipage}{0.24\linewidth}
+				\centering
 				\def\stackalignment{c}
-				\topinset{\gear}{\rotatebox{90}{\ban}}{14pt}{-1pt}
+				\topinset{\gear}{\rotatebox{90}{\ban}}{14pt}{-1pt}\vfil
+				\normalsize Non-disponibilité des configurations
 		\end{minipage}}
 	\note{Non-disponibilité du jeu de données ou \textbf{version} (pas claire) du jeu de données, 
 		\textbf{mauvaise spécification ou sous-spécification} du modèle et de la \textbf{procédure d'entraînement},
@@ -371,20 +395,26 @@ BoldFont = *-Regular
 	\begin{frame}{Version des données \& Étapes de prétraitement}
 		\centering
 		\uncover<1->{\begin{minipage}{0.32\linewidth}
-				\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faCopy
+				\centering
+				\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faCopy\vfil
+				\normalsize Version
 		\end{minipage}}
 		\uncover<2->{\begin{minipage}{0.32\linewidth}
-				\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faServer
+				\centering
+				\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faServer\vfil
+				\normalsize Gestion des versions
 		\end{minipage}}
 		\uncover<3->{\begin{minipage}{0.32\linewidth}
-				\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faRoad
+				\centering
+				\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faRoad\vfil
+				\normalsize Étapes prétraitement
 		\end{minipage}}
 		\note{
 			Avec quelle version des données doit-on travailler?
 			
 			Comment gérer \textbf{facilement} plusieurs versions des données?
 			
-			Comment définir \textbf{facilement} les étapes de pré procession des données?
+			Comment définir \textbf{facilement} les étapes de prétraitement des données?
 			
 			Il nous faut des \textit{\textbf{data pipelines}}, des tuyaux que nous pouvons \textbf{facilement} raccorder à nos modèles pour l'entrainement et la mise en production.
 		
@@ -403,13 +433,19 @@ BoldFont = *-Regular
 	\begin{frame}{Code}
 		\centering
 		\uncover<1->{\begin{minipage}{0.32\linewidth}
-				\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faCopy
+				\centering
+				\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faCopy\vfil
+				\normalsize Version
 		\end{minipage}}
 		\uncover<2->{\begin{minipage}{0.32\linewidth}
-				\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faList
+				\centering
+				\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faList\vfil
+				\normalsize Différence
 		\end{minipage}}
 		\uncover<3->{\begin{minipage}{0.32\linewidth}
-				\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faCodeFork
+				\centering
+				\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faCodeFork\vfil
+				\normalsize Divergences
 		\end{minipage}}
 		\note{
 			Avec quelle version du code doit-on travailler?
@@ -434,14 +470,20 @@ BoldFont = *-Regular
 		\def\tool{\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faWrench}
 		\centering
 		\uncover<1->{\begin{minipage}{0.32\linewidth}
+				\centering
 				\def\stackalignment{c}
-				\topinset{\tool}{\rotatebox{90}{\ban}}{14pt}{-1pt}
+				\topinset{\tool}{\rotatebox{90}{\ban}}{14pt}{-1pt}\vfil
+				\normalsize Réinventer
 		\end{minipage}}
 		\uncover<2->{\begin{minipage}{0.32\linewidth}
-				\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faMinusSquareO
+				\centering
+				\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faMinusSquareO\vfil
+				\normalsize Simplification
 		\end{minipage}}
 		\uncover<3->{\begin{minipage}{0.32\linewidth}
-				\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faFastForward
+				\centering
+				\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faFastForward\vfil
+				\normalsize Facilite
 		\end{minipage}}
 		\note{
 			Ne pas réinventer la roue.
@@ -468,16 +510,24 @@ BoldFont = *-Regular
 	\begin{frame}{Entraînement, configuration et résultats}
 		\centering
 		\uncover<1->{\begin{minipage}{0.24\linewidth}
-				\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faCodeFork
+				\centering
+				\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faCodeFork\vfil
+				\normalsize Version de l'entraînement
 		\end{minipage}}
 		\uncover<2->{\begin{minipage}{0.24\linewidth}
-				\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faAreaChart
+				\centering
+				\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faAreaChart\vfil
+				\normalsize Résultats
 		\end{minipage}}
 		\uncover<3->{\begin{minipage}{0.24\linewidth}
-				\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faCog
+				\centering
+				\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faCog\vfil
+				\normalsize Visualisation
 		\end{minipage}}
 		\uncover<4->{\begin{minipage}{0.24\linewidth}
-			\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faTimesCircleO
+				\centering
+			\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faTimesCircleO\vfil
+			\normalsize Erreurs d'entraînement
 	\end{minipage}}
 
 		\note{
@@ -505,13 +555,19 @@ BoldFont = *-Regular
 	\begin{frame}{Rapport et analyse des résultats}
 		\centering
 		\uncover<1->{\begin{minipage}{0.32\linewidth}
-				\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faTable
+				\centering
+				\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faTable\vfil
+				\normalsize Tableau des résultats
 		\end{minipage}}
 		\uncover<2->{\begin{minipage}{0.32\linewidth}
-				\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faCalendar
+				\centering
+				\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faCalendar\vfil
+				\normalsize Mise à jour
 		\end{minipage}}
 		\uncover<3->{\begin{minipage}{0.32\linewidth}
-				\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faAreaChart
+				\centering
+				\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faAreaChart\vfil
+				\normalsize Visualisation configuration
 		\end{minipage}}
 		
 		\note{
@@ -538,10 +594,14 @@ BoldFont = *-Regular
 		
 		\centering
 		\uncover<1->{\begin{minipage}{0.49\linewidth}
-				\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faFileArchiveO
+				\centering
+				\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faFileArchiveO\vfil
+				\normalsize Différents environnements
 		\end{minipage}}
 		\uncover<2->{\begin{minipage}{0.49\linewidth}
-				\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faRecycle
+				\centering
+				\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faRecycle\vfil
+				\normalsize Réutilisation
 		\end{minipage}}
 		
 		\note{
@@ -558,9 +618,10 @@ BoldFont = *-Regular
 	\end{frame}
 		
 	\section{La suite}
-	\centering
 	\begin{frame}
-		\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faRefresh
+		\centering
+		\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faRefresh\vfil
+		\normalsize Itérations d'expérimentations
 		\note{Développer des processus rigoureux (par essais, erreurs et journaux) et ne pas prendre tout ce qui a été discuté ici comme l'unique solution.}
 	\end{frame}
 	
