@@ -57,10 +57,14 @@
 \def\webinaire{%
   \OverpassSemiBold\bfseries\fontsize{18}{18}\selectfont
   WEBINAIRE}
-\def\cfddfmt{%
-  \OverpassLight\fontsize{4.5}{4.5}\selectfont%
-  \bfseries\textcolor{black}{Faculté des sciences et de génie} \\
-  \mdseries\textcolor[gray]{0.35}{Institut Intelligence et Données (IID)}}
+\def\fsgiid{%
+	\OverpassLight\fontsize{4.5}{4.5}\selectfont%
+	\bfseries\textcolor{black}{Faculté des sciences et de génie} \\
+	\mdseries\textcolor[gray]{0.35}{Institut Intelligence et Données (IID)}}
+
+\def\iidurl{%
+	\OverpassLight\fontsize{4.5}{4.5}\selectfont%
+	\bfseries\textcolor{black}{iid.ulaval.ca}}
 
 %%%
 %%% Page de titre
@@ -78,8 +82,11 @@
       img/ul_p}
   \end{textblock*}
   \begin{textblock*}{3\TPHorizModule}[1,0.5](14\TPHorizModule,59.7\TPVertModule)
-    \raggedleft\cfddfmt
+    \raggedleft\fsgiid
   \end{textblock*}
+  \begin{textblock*}{3\TPHorizModule}[0,0.5](0.7\TPHorizModule,59.7\TPVertModule)
+	\iidurl
+\end{textblock*}
 
   %% image droite
   \begin{textblock*}{0.560261\imageheight}[1,0](147mm,0mm)
@@ -96,6 +103,7 @@
   \begin{textblock*}{10\TPHorizModule}(0.7\TPHorizModule,21\TPVertModule)
     \textcolor[cmyk]{0.67, 0.66, 0, 0.71}{\titlefmt}
   \end{textblock*}\end{frame}
+
 \endgroup
 
 %%% Local Variables:
