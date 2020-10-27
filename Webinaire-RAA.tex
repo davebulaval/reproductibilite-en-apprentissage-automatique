@@ -111,15 +111,19 @@ BoldFont = *-Regular
 \definecolor{codebg}{named}{LightYellow1} % fond code R
 \definecolor{rouge}{rgb}{0.85,0,0.07} % bandeau rouge UL
 \definecolor{or}{rgb}{1,0.8,0}        % bandeau or UL
+\definecolor{couleurpolice}{cmyk}{0.67, 0.66, 0, 0.71}
+
 \colorlet{alert}{mLightBrown} % alias pour couleur Metropolis
 \colorlet{dark}{mDarkTeal}    % alias pour couleur Metropolis
 \colorlet{code}{mLightGreen}  % alias pour couleur Metropolis
 \colorlet{shadecolor}{codebg}
 
 
-\definecolor{titre}{cmyk}{0.67, 0.66, 0, 0.71}
-\setbeamercolor{frametitle}{fg=titre}
-\setbeamercolor{section in head/foot}{fg=titre}
+\setbeamercolor{frametitle}{fg=couleurpolice}
+\setbeamercolor{section in head/foot}{fg=couleurpolice}
+\setbeamercolor{normal text}{fg=couleurpolice}
+
+
 
 %% Hyperliens
 \hypersetup{%
@@ -225,13 +229,13 @@ BoldFont = *-Regular
 	\begin{frame}{Au menu}
 		\begin{minipage}{0.24\linewidth}
 				\centering
-				\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faFilesO \vfil
+				\fontsize{35}{35}\faFilesO \vfil
 				\vspace{1em}
 				\normalsize Gestion version
 		\end{minipage}
 		\begin{minipage}{0.24\linewidth}
 				\centering
-				\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faTachometer\vfil
+				\fontsize{35}{35}\faTachometer\vfil
 				\vspace{1em}
 				\normalsize Productivité
 				
@@ -239,13 +243,13 @@ BoldFont = *-Regular
 		\begin{minipage}{0.24\linewidth}
 				\centering
 				% Camille comment : Cette icone a un problème d'alignement ... 
-				\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faPencilSquareO\vfil
+				\fontsize{35}{35}\faPencilSquareO\vfil
 				\vspace{1em}
 				\normalsize Présenter
 		\end{minipage}
 		\begin{minipage}{0.24\linewidth}
 				\centering
-				\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faRecycle\vfil
+				\fontsize{35}{35}\faRecycle\vfil
 				\vspace{1em}
 				\normalsize Réutiliser
 		\end{minipage}
@@ -271,7 +275,7 @@ BoldFont = *-Regular
 	
 	\begin{frame}{Pourquoi s'y intéresser ?}
 		\centering
-		\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}{70~\%}\footnote[1]{\cite{baker500ScientistsLift2016}}
+		\fontsize{35}{35}\selectfont70~\%\fontsize{25}{25}\footnote[1]{\cite{baker500ScientistsLift2016}}
 		
 		\note{
 			$70$~\% des chercheurs en science on échoué dans leur tentative de reproduire un article d'un autre chercheur
@@ -280,7 +284,7 @@ BoldFont = *-Regular
 
 	\begin{frame}{Pourquoi s'y intéresser ?}
 	\centering
-	\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}{50~\%}\footnote[1]{\cite{baker500ScientistsLift2016}}
+	\fontsize{35}{35}\selectfont50~\%\fontsize{25}{25}\footnote[1]{\cite{baker500ScientistsLift2016}}
 
 		
 		\note{
@@ -293,7 +297,7 @@ BoldFont = *-Regular
 
 	\begin{frame}{Pourquoi s'y intéresser ?}
 		\centering
-		\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71} 40~\%\footnote[2]{\cite{raff2019step}}
+		\fontsize{35}{35} \selectfont40~\%\fontsize{25}{25}\footnote[2]{\cite{raff2019step}}
 		
 		
 		\note{
@@ -306,25 +310,25 @@ BoldFont = *-Regular
 		\centering
 		\uncover<1->{\begin{minipage}{0.24\linewidth}
 				\centering
-				\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faRecycle\vfil
+				\fontsize{35}{35}\faRecycle\vfil
 				\vspace{1em}
 				\normalsize Réutilisation
 		\end{minipage}}
 		\uncover<2->{\begin{minipage}{0.24\linewidth}
 				\centering
-				\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faForward\vfil
+				\fontsize{35}{35}\faForward\vfil
 				\vspace{1em}
 				\normalsize Productivité
 		\end{minipage}}
 		\uncover<3->{\begin{minipage}{0.24\linewidth}
 				\centering
-				\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faShare\vfil
+				\fontsize{35}{35}\faShare\vfil
 				\vspace{1em}
 				\normalsize Transfert
 		\end{minipage}}
 		\uncover<4->{\begin{minipage}{0.24\linewidth}
 				\centering
-				\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faMapPin\vfil
+				\fontsize{35}{35}\faMapPin\vfil
 				\vspace{1em}
 				\normalsize Se faire connaître
 		\end{minipage}}
@@ -393,32 +397,32 @@ BoldFont = *-Regular
 	\begin{frame}{Au menu}
 		\begin{minipage}{0.24\linewidth}
 			\centering
-			\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faFilesO
+			\fontsize{35}{35}\faFilesO
 			\vfil
-			\vspace{0.35em}
+			\vspace{1em}
 			\normalsize Gestion version
 		\end{minipage}
 		\begin{minipage}{0.24\linewidth}
 			\centering
-			\tikz\node[opacity=0.5]{\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faTachometer};
+			\tikz\node[opacity=0.5]{\fontsize{35}{35}\faTachometer};
 			\vfil
 			\vspace{1em}
-			\normalsize Productivité
+			\tikz\node[opacity=0.5]{\normalsize Productivité};
 			
 		\end{minipage}
 		\begin{minipage}{0.24\linewidth}
 			\centering
-			\tikz\node[opacity=0.5]{\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faPencilSquareO};
+			\tikz\node[opacity=0.5]{\fontsize{35}{35}\faPencilSquareO};
 			\vfil
 			\vspace{1em}
-			\normalsize Présenter
+			\tikz\node[opacity=0.5]{\normalsize Présenter};
 		\end{minipage}
 		\begin{minipage}{0.24\linewidth}
 			\centering
-			\tikz\node[opacity=0.5]{\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faRecycle};
+			\tikz\node[opacity=0.5]{\fontsize{35}{35}\faRecycle};
 			\vfil
 			\vspace{1em}
-			\normalsize Réutiliser
+			\tikz\node[opacity=0.5]{\normalsize Réutiliser};
 		\end{minipage}
 	\end{frame}
 
@@ -426,19 +430,19 @@ BoldFont = *-Regular
 		\centering
 		\uncover<1->{\begin{minipage}{0.32\linewidth}
 				\centering
-				\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faCopy\vfil
+				\fontsize{35}{35}\faCopy\vfil
 				\vspace{1em}
 				\normalsize Version
 		\end{minipage}}
 		\uncover<2->{\begin{minipage}{0.32\linewidth}
 				\centering
-				\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faServer\vfil
+				\fontsize{35}{35}\faServer\vfil
 				\vspace{1em}
 				\normalsize Gestion des versions
 		\end{minipage}}
 		\uncover<3->{\begin{minipage}{0.32\linewidth}
 				\centering
-				\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faRoad\vfil
+				\fontsize{35}{35}\faRoad\vfil
 				\vspace{1em}
 				\normalsize Étapes prétraitement
 		\end{minipage}}
@@ -474,19 +478,19 @@ BoldFont = *-Regular
 	\begin{frame}{Code}
 		\uncover<1->{\begin{minipage}{0.32\linewidth}
 				\centering
-				\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faCopy\vfil
+				\fontsize{35}{35}\faCopy\vfil
 				\vspace{1em}
 				\normalsize Version
 		\end{minipage}}
 		\uncover<2->{\begin{minipage}{0.32\linewidth}
 				\centering
-				\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faList\vfil
+				\fontsize{35}{35}\faList\vfil
 				\vspace{1em}
 				\normalsize Différence
 		\end{minipage}}
 		\uncover<3->{\begin{minipage}{0.32\linewidth}
 				\centering
-				\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faCodeFork\vfil
+				\fontsize{35}{35}\faCodeFork\vfil
 				\vspace{1em}
 				\normalsize Divergences
 		\end{minipage}}
@@ -504,25 +508,25 @@ BoldFont = *-Regular
 	\begin{frame}{Code}
 		\begin{minipage}{0.24\linewidth}
 			\centering
-			\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faGit\vfill
+			\fontsize{35}{35}\faGit\vfill
 			\vspace{1em}
 			\normalsize \href{https://git-scm.com/}{Git}
 		\end{minipage}
 		\begin{minipage}{0.24\linewidth}
 			\centering
-			\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faGithub\vfill
+			\fontsize{35}{35}\faGithub\vfill
 			\vspace{1em}
 			\normalsize \href{https://github.com/}{GitHub}
 		\end{minipage}
 		\begin{minipage}{0.24\linewidth}
 			\centering
-			\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faGitlab\vfill
+			\fontsize{35}{35}\faGitlab\vfill
 			\vspace{1em}
 			\normalsize \href{https://gitlab.com/}{GitLab}
 		\end{minipage}
 		\begin{minipage}{0.24\linewidth}
 			\centering
-			\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faBitbucket\vfill
+			\fontsize{35}{35}\faBitbucket\vfill
 			\vspace{1em}
 			\normalsize \href{https://bitbucket.org/}{Bitbucket}
 		\end{minipage}
@@ -531,39 +535,39 @@ BoldFont = *-Regular
 	\begin{frame}{Au menu}
 		\begin{minipage}{0.24\linewidth}
 			\centering
-			\tikz\node[opacity=0.5]{\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faFilesO};
+			\tikz\node[opacity=0.5]{\fontsize{35}{35}\faFilesO};
 			\vfil
 			\vspace{1em}
-			\normalsize Gestion version
+			\tikz\node[opacity=0.5]{\normalsize Gestion version};
 		\end{minipage}
 		\begin{minipage}{0.24\linewidth}
 			\centering
-			\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faTachometer
+			\fontsize{35}{35}\faTachometer
 			\vfil
-			\vspace{0.7em}
+			\vspace{1.5em}
 			\normalsize Productivité
 			
 		\end{minipage}
 		\begin{minipage}{0.24\linewidth}
 			\centering
-			\tikz\node[opacity=0.5]{\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faPencilSquareO};
+			\tikz\node[opacity=0.5]{\fontsize{35}{35}\faPencilSquareO};
 			\vfil
-			\vspace{1.1em}
-			\normalsize Présenter
+			\vspace{1em}
+			\tikz\node[opacity=0.5]{\normalsize Présenter};
 		\end{minipage}
 		\begin{minipage}{0.24\linewidth}
 			\centering
-			\tikz\node[opacity=0.5]{\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faRecycle};
+			\tikz\node[opacity=0.5]{\fontsize{35}{35}\faRecycle};
 			\vfil
 			\vspace{1em}
-			\normalsize Réutiliser
+			\tikz\node[opacity=0.5]{\normalsize Réutiliser};
 		\end{minipage}
 	\end{frame}
 	
 	\subsection{Développement}
 	\begin{frame}{Développement des modèles}
-		\def\ban{\fontsize{65}{65}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faBan}
-		\def\tool{\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faWrench}
+		\def\ban{\fontsize{65}{65}\faBan}
+		\def\tool{\fontsize{35}{35}\faWrench}
 		\centering
 		\uncover<1->{\begin{minipage}{0.32\linewidth}
 				\centering
@@ -575,14 +579,14 @@ BoldFont = *-Regular
 		\uncover<2->{\begin{minipage}{0.32\linewidth}
 				\centering
 				% Camille : Celui la aussi il a pas la même taille initiale.
-				\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faMinusSquareO\vfil
-				\vspace{1em}
+				\fontsize{35}{35}\faMinusSquareO\vfil
+				\vspace{3.5em}
 				\normalsize Simplification
 		\end{minipage}}
 		\uncover<3->{\begin{minipage}{0.32\linewidth}
 				\centering
-				\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faForward\vfil
-				\vspace{1em}
+				\fontsize{35}{35}\faForward\vfil
+				\vspace{3.5em}
 				\normalsize Facilite
 		\end{minipage}}
 		\note{
@@ -634,26 +638,26 @@ BoldFont = *-Regular
 		\centering
 		\uncover<1->{\begin{minipage}{0.24\linewidth}
 				\centering
-				\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faCodeFork\vfil
+				\fontsize{35}{35}\faCodeFork\vfil
 				\vspace{1em}
 				\normalsize Version de l'entraînement
 		\end{minipage}}
 		\uncover<2->{\begin{minipage}{0.24\linewidth}
 				\centering
-				\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faAreaChart\vfil
+				\fontsize{35}{35}\faAreaChart\vfil
 				\vspace{1em}
 				\normalsize Résultats
 		\end{minipage}}
 		\uncover<3->{\begin{minipage}{0.24\linewidth}
 				\centering
 				% Camille : facog semble correct though ... 
-				\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faCog\vfil
+				\fontsize{35}{35}\faCog\vfil
 				\vspace{1em}
 				\normalsize Visualisation
 		\end{minipage}}
 		\uncover<4->{\begin{minipage}{0.24\linewidth}
 				\centering
-			\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faTimesCircleO\vfil
+			\fontsize{35}{35}\faTimesCircleO\vfil
 			\vspace{1em}
 			\normalsize Erreurs d'entraînement
 	\end{minipage}}
@@ -685,14 +689,14 @@ BoldFont = *-Regular
 	\end{minipage}
 	\begin{minipage}{0.24\linewidth}
 		\centering
-		\fontsize{25}{25}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faGithub\vfill
-		\vspace{0.5em}
+		\fontsize{35}{35}\faGithub\vfill
+		\vspace{1em}
 		\normalsize\href{https://sacred.readthedocs.io/en/stable/}{Sacred}
 	\end{minipage}
 	\begin{minipage}{0.24\linewidth}
 		\centering
-		\fontsize{25}{25}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faGithub\vfill
-		\vspace{0.5em}
+		\fontsize{35}{35}\faGithub\vfill
+		\vspace{1em}
 		\normalsize\href{https://notificationdoc.ca/}{Notif}
 	\end{minipage}
 \end{frame}
@@ -700,32 +704,32 @@ BoldFont = *-Regular
 	\begin{frame}{Au menu}
 		\begin{minipage}{0.24\linewidth}
 			\centering
-			\tikz\node[opacity=0.5]{\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faFilesO};
+			\tikz\node[opacity=0.5]{\fontsize{35}{35}\faFilesO};
 			\vfil
 			\vspace{1em}
-			\normalsize Gestion version
+			\tikz\node[opacity=0.5]{\normalsize Gestion version};
 		\end{minipage}
 		\begin{minipage}{0.24\linewidth}
 			\centering
-			\tikz\node[opacity=0.5]{\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faTachometer};
+			\tikz\node[opacity=0.5]{\fontsize{35}{35}\faTachometer};
 			\vfil
-			\vspace{1em}
-			\normalsize Productivité
+			\vspace{2em}
+			\tikz\node[opacity=0.5]{\normalsize Productivité};
 			
 		\end{minipage}
 		\begin{minipage}{0.24\linewidth}
 			\centering
-			\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faPencilSquareO
+			\fontsize{35}{35}\faPencilSquareO
 			\vfil
-			\vspace{0.55em}
+			\vspace{2em}
 			\normalsize Présenter
 		\end{minipage}
 		\begin{minipage}{0.24\linewidth}
 			\centering
-			\tikz\node[opacity=0.5]{\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faRecycle};
+			\tikz\node[opacity=0.5]{\fontsize{35}{35}\faRecycle};
 			\vfil
-			\vspace{1em}
-			\normalsize Réutiliser
+			\vspace{2em}
+			\tikz\node[opacity=0.5]{\normalsize Réutiliser};
 		\end{minipage}
 	\end{frame}
 
@@ -733,19 +737,19 @@ BoldFont = *-Regular
 		\centering
 		\uncover<1->{\begin{minipage}{0.32\linewidth}
 				\centering
-				\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faTable\vfil
+				\fontsize{35}{35}\faTable\vfil
 				\vspace{1em}
 				\normalsize Tableau des résultats
 		\end{minipage}}
 		\uncover<2->{\begin{minipage}{0.32\linewidth}
 				\centering
-				\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faCalendar\vfil
+				\fontsize{35}{35}\faCalendar\vfil
 				\vspace{1em}
 				\normalsize Mise à jour
 		\end{minipage}}
 		\uncover<3->{\begin{minipage}{0.32\linewidth}
 				\centering
-				\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faAreaChart\vfil
+				\fontsize{35}{35}\faAreaChart\vfil
 				\vspace{1em}
 				\normalsize Visualisation configuration
 		\end{minipage}}
@@ -764,20 +768,20 @@ BoldFont = *-Regular
 	\begin{frame}{Rapport et analyse des résultats}
 		\begin{minipage}{0.32\linewidth}
 			\centering
-			\fontsize{25}{25}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faGithub\vfill
-			\vspace{1em}
+			\fontsize{35}{35}\faGithub\vfill
+			\vspace{3em}
 			\normalsize\href{https://github.com/jsleb333/python2latex}{Python2LaTeX}
 		\end{minipage}
 		\begin{minipage}{0.32\linewidth}
 			\centering
 			\includesvg[width=40pt, height=40pt]{./img/tensorflow} \vfil
-			\vspace{1em}
+			\vspace{1.5em}
 			\href{https://www.tensorflow.org/tensorboard?hl=fr}{TensorBoard}
 		\end{minipage}
 		\begin{minipage}{0.32\linewidth}
 			\centering
 			\includesvg[width=40pt, height=40pt]{./img/markdown} \vfil
-			\vspace{2em}
+			\vspace{2.6em}
 			\href{https://fr.wikipedia.org/wiki/Markdown}{Markdown}
 		\end{minipage}
 	\end{frame}
@@ -785,31 +789,30 @@ BoldFont = *-Regular
 	\begin{frame}{Au menu}
 		\begin{minipage}{0.24\linewidth}
 			\centering
-			\tikz\node[opacity=0.5]{\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faFilesO};
+			\tikz\node[opacity=0.5]{\fontsize{35}{35}\faFilesO};
 			\vfil
 			\vspace{1em}
-			\normalsize Gestion version
+			\tikz\node[opacity=0.5]{\normalsize Gestion version};
 		\end{minipage}
 		\begin{minipage}{0.24\linewidth}
 			\centering
-			\tikz\node[opacity=0.5]{\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faTachometer};
+			\tikz\node[opacity=0.5]{\fontsize{35}{35}\faTachometer};
 			\vfil
-			\vspace{1.1em}
-			\normalsize Productivité
-			
+			\vspace{2em}
+			\tikz\node[opacity=0.5]{\normalsize Productivité};
 		\end{minipage}
 		\begin{minipage}{0.24\linewidth}
 			\centering
-			\tikz\node[opacity=0.5]{\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faPencilSquareO};
+			\tikz\node[opacity=0.5]{\fontsize{35}{35}\faPencilSquareO};
 			\vfil
-			\vspace{1.1em}
-			\normalsize Présenter
+			\vspace{2em}
+			\tikz\node[opacity=0.5]{\normalsize Présenter};
 		\end{minipage}
 		\begin{minipage}{0.24\linewidth}
 			\centering
-			\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faRecycle
+			\fontsize{35}{35}\faRecycle
 			\vfil
-			\vspace{0.35em}
+			\vspace{2em}
 			\normalsize Réutiliser
 		\end{minipage}
 	\end{frame}
@@ -819,13 +822,13 @@ BoldFont = *-Regular
 		\centering
 		\uncover<1->{\begin{minipage}{0.49\linewidth}
 				\centering
-				\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faFileArchiveO\vfil
+				\fontsize{35}{35}\faFileArchiveO\vfil
 				\vspace{1em}
 				\normalsize Différents environnements
 		\end{minipage}}
 		\uncover<2->{\begin{minipage}{0.49\linewidth}
 				\centering
-				\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faRecycle\vfil
+				\fontsize{35}{35}\faRecycle\vfil
 				\vspace{1em}
 				\normalsize Réutilisation
 		\end{minipage}}
@@ -855,7 +858,7 @@ BoldFont = *-Regular
 	\section{La suite}
 	\begin{frame}
 		\centering
-		\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faRefresh\vfil
+		\fontsize{35}{35}\faRefresh\vfil
 		\vspace{1em}
 		\normalsize Itérations d'expérimentations
 		\note{Développer des processus rigoureux (par essais, erreurs et journaux) et ne pas prendre tout ce qui a été discuté ici comme l'unique solution.}
@@ -876,7 +879,7 @@ BoldFont = *-Regular
 		\frametitle{Période de questions}
 		
 		\centering
-		\fontsize{100}{100}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}
+		\fontsize{100}{100}
 		\faQuestion
 		
 	\end{frame}
