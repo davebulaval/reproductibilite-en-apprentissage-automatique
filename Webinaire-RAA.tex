@@ -36,7 +36,6 @@
 
 \usepackage{svg} %for svg image also need option --shell-escape
 
-
 %% =============================
 %%  Informations de publication
 %% =============================
@@ -197,8 +196,8 @@ BoldFont = *-Regular
 	
 	\begin{frame}{Objectifs de la présentation}
 		\begin{itemize}
-			\item Sensibiliser sur les enjeux de la reproductibilité.
 			\item Inciter l'intégration des solutions permettant une meilleure reproductibilité dans vos solutions d'affaires et académiques.
+			\item Améliorer la reproductibilité de vos projets.
 			\item Améliorer votre productivité.
 		\end{itemize}
 	\end{frame}
@@ -212,7 +211,7 @@ BoldFont = *-Regular
 		\hfill
 		\begin{minipage}{0.70\linewidth}
 			\begin{itemize}
-				\item Introduit à la recherche reproductible en 2016 (R Markdown et Git)
+				\item Introduit à la recherche reproductible en 2016 (\mbox{R Markdown} et \faGit)
 				\item Participation à REPROLANG de la conférence LREC \cite{garneau2020robust}
 				\item Membre actif dans le développement d'une librairie facilitant la reproductibilité (\href{https://poutyne.org/}{Poutyne})
 			\end{itemize}
@@ -259,7 +258,7 @@ BoldFont = *-Regular
 	\begin{frame}{C'est quoi la reproductibilité ?}
 		La reproductibilité est le principe qui dit qu'on ne peut tirer de conclusions que d'un événement bien décrit, qui est apparu plusieurs fois, provoqué par des \textbf{personnes différentes}.
 		
-		Toutefois, ont utilise souvent ce terme pour spécifiquement désigner la \textbf{réplicabilité}. Soit la réplication (reproduction) des résultats d'un article dans des environnements pas (toujours) différents \cite{replicationvsreproductiblity, pineau2020improving}.
+		Par contre, en apprentissage automatique, la reproductibilité correspond (surtout) à être capable de reproduire des résultats, soit d'obtenir des résultats similaires en réexécutant un code source\cite{pineau2020improving}.
 		
 		\note{
 			
@@ -269,9 +268,14 @@ BoldFont = *-Regular
 			
 			en utilisant la \textbf{procédure d'entraînement} de l'article ou en utilisant notre procédure d'entrainement et 
 			
-			en utilisant le \textbf{code} du projet.}
+			en utilisant le \textbf{code} du projet.
+			
+			les points clés c'est l'idée que si une idée a de bons résultats, on devrait être capable de la reprendre et de retrouver les mêmes résultats.
+			
+			En ML, les idées c'est des algos et la reproductibilité devient juste d'être capable de s'assurer que les performances rapportées sont les mêmes.
+				
+	}
 	\end{frame}
-%La définition de reproductibilité est à revoir. Je pense que les points clés c'est l'idée que si une idée a de bons résultats, on devrait être capable de la reprendre et de retrouver les mêmes résultats. En ML, les idées c'est des algos et la reproductibilité devient juste d'être capable de s'assurer que les performances rapportées sont les mêmes. Aussi, la parenthèse avec la réplicabilité : la réplicabilité en ML le point clé c'est de réimplémenter un algo alors que la reproductibilité c'est juste genre rerouler le code from scratch et retrouver les perfos rapportées.
 	
 	\begin{frame}{Pourquoi s'y intéresser ?}
 		\centering
@@ -289,8 +293,6 @@ BoldFont = *-Regular
 		
 		\note{
 			$50$~\% n'ont pas réussit à reproduire leurs \textbf{propres} expérimentations
-			
-			L'informatique ne fait pas exception à cela malgré la simplicité (théorique) de réplication des résultats. Selon une étude, sur \textbf{255} articles, près de $40$~\% n'étaient pas réplicable \cite{raff2019step}.
 		}
 	
 	\end{frame}
@@ -335,7 +337,7 @@ BoldFont = *-Regular
 		\note{La reproductibilité facilite la \textbf{réutilisation} pour d'autres projets de recherche, améliorer votre productivité \textbf{et} permet le transfert vers l'industrie (plus facilement). En bonus, cela aide à vous faire connaître si vous faites du contenu réutilisable par la communauté.}
 	\end{frame}
 	
-	\section{Les barrières à la réplicabilité}
+	\section{Les barrières à la reproductibilité}
 %		\begin{frame}		\def\ban{\fontsize{65}{65}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faBan}
 %		\def\database{\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faDatabase}
 %		\def\code{\fontsize{35}{35}\selectfont\textcolor[cmyk]{0.67, 0.66, 0, 0.71}\faCode}
