@@ -1,22 +1,15 @@
-## Introduction
-Dans un environnement de développement constant, il devient difficile de suivre les changements des versions des répertoires de travail. Qui n'a pas déjà écrit un rapport sous le nom `rapport_v4_final_final-2.pdf` ?
+## Reproductibilité en apprentissage automatique
 
-Cette problématique a été résolue depuis longtemps par les systèmes de gestion de version. La présente formation vise à introduire un débutant aux différents concepts tout en lui présentant des concepts plus avancés en rafale et des astuces.
-
-De plus, avec l'essor des données massives et du deep learning, l'utilisation des serveurs de calcul à distance est un incontournable pour entrainer un modèle. Il devient donc nécessaire de maitriser des bonnes pratiques et des bonnes habitudes de travail en ligne de commande. Cet atelier vise aussi l'introduction aux différents outils disponibles en ligne de commande.
-
-## Présentation
-Cet atelier vise à initier l’utilisateur aux bonnes pratiques de travail en science des données ainsi qu'à Git de niveau débutant à intermédiaire.
+Ce webinaire se veut une brève introduction à la « recherche reproductible » en apprentissage automatique. Pour bien utiliser nos résultats de recherche, nous devons apprendre à adopter graduellement de nouvelles méthodes de travail pour gagner en productibilité. Aucune connaissance a priori n’est requise.
 
 ## Thèmes abordés
- - Ligne de commande
- - Git débutant
- - Git avancée
- - Git expert en rafale
+ - Gestion version (données et code)
+ - Productivité
+ - Présenter
+ - Réutiliser
 
-## Prérequis pour la formation
-L'installation de [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
-> Pour *Windows* sélectionnez l'option d'installation de Git Bash.
+## Enregistrement de la présentation
+À suivre
  
-## Auteurs et animateurs
-David Beauchemin, étudiant à la maîtrise en informatique à l'Université Laval.
+## Auteur et conférencier
+David est Candidat au Doctorat en Informatique à l'Université Laval cumulant une expertise en actuariat, informatique et génie logiciel. Il se spécialise en traitement automatique de la langue naturelle en utilisant l’apprentissage automatique. Il a eu un pied en industrie tout au long de son parcours académique en appliquant ses connaissances théoriques à des problèmes réels auxquels les entreprises sont confrontées. Il a récemment fondé avec des collègues Baseline, une coopérative d’expert en IA désirant contribuer au transfert technologique entre le milieu académique et le monde des affaires.
