@@ -3,8 +3,8 @@
 %%% Ce fichier et tous les fichiers .tex dont la racine est
 %%% mentionnée dans les commandes \include et \input ci-dessous font
 %%% partie du projet «Reproductibilité en apprentissage automatique
-%%% - Webinaire de l'institut intelligence et données»
-%%% URL
+%%% - Webinaire de l'AAIARD»
+%%% https://davebulaval.github.io/reproductibilite-en-apprentissage-automatique/
 %%%
 %%% Le format et le visuel est très fortement inspiré du matériel de
 %%% Vincent Goulet https://gitlab.com/vigou3/webinaire-recherche-reproductible
@@ -57,52 +57,27 @@
 \def\webinaire{%
   \OverpassSemiBold\bfseries\fontsize{18}{18}\selectfont
   WEBINAIRE}
-\def\fsgiid{%
-	\OverpassLight\fontsize{4.5}{4.5}\selectfont%
-	\bfseries\textcolor{black}{Faculté des sciences et de génie} \\
-	\mdseries\textcolor[gray]{0.35}{Institut Intelligence et Données (IID)}}
-
-\def\iidurl{%
-	\OverpassLight\fontsize{4.5}{4.5}\selectfont%
-	\bfseries\textcolor{black}{iid.ulaval.ca}}
 
 %%%
 %%% Page de titre
 %%%
 \begin{frame}[plain]
-  %% bandeau identitaire
-  \begin{textblock*}{\paperwidth}[0,1](0mm,56\TPVertModule)
-    \textcolor{rouge}{\rule{\banderougewidth}{\banderougeheight}}% % bande rouge
-    \textcolor{or}{\rule{\bandeorwidth}{\bandeorheight}}           % bande or
-  \end{textblock*}
-
-  %% logo UL
-  \begin{textblock*}{\bandeorwidth}(\banderougewidth,58\TPVertModule)
-    \includegraphics[height=\logoheight,keepaspectratio=true]{%
-      img/ul_p}
-  \end{textblock*}
-  \begin{textblock*}{3\TPHorizModule}[1,0.5](14\TPHorizModule,59.7\TPVertModule)
-    \raggedleft\fsgiid
-  \end{textblock*}
-  \begin{textblock*}{3\TPHorizModule}[0,0.5](0.7\TPHorizModule,59.7\TPVertModule)
-	\iidurl
-\end{textblock*}
-
-  %% image droite
-  \begin{textblock*}{0.560261\imageheight}[1,0](147mm,0mm)
-    \includegraphics[height=\imageheight,keepaspectratio, angle=180,origin=c]{%
-	img/degrade-coin-rouge}
-  \end{textblock*}
-
-  %% identifiant «webinaire»
-  \begin{textblock*}{2\TPHorizModule}(0.7\TPHorizModule,5\TPVertModule)
-    \textcolor[rgb]{0.37,0.37,0.37}{\webinaire}
-  \end{textblock*}
-
-  %% titre
-  \begin{textblock*}{10\TPHorizModule}(0.7\TPHorizModule,21\TPVertModule)
-    \textcolor[cmyk]{0.67, 0.66, 0, 0.71}{\titlefmt}
-  \end{textblock*}\end{frame}
+	%% bandeau identitaire
+	\begin{textblock*}{\paperwidth}[0,1](0mm,56\TPVertModule)
+		\textcolor{rouge}{\rule{\banderougewidth}{\banderougeheight}}% % bande rouge
+		\textcolor{bleu}{\rule{\bandeorwidth}{\bandeorheight}}           % bande or
+	\end{textblock*}
+	
+	%% identifiant «webinaire»
+	\begin{textblock*}{2\TPHorizModule}(0.7\TPHorizModule,5\TPVertModule)
+		\textcolor[rgb]{0.13,0.13,0.13}{\webinaire}
+	\end{textblock*}
+	
+	%% titre
+	\begin{textblock*}{12\TPHorizModule}(0.7\TPHorizModule,17\TPVertModule)
+		\textcolor[rgb]{0.13,0.13,0.13}{\titlefmt}
+	\end{textblock*}
+\end{frame}
 
 \endgroup
 

@@ -3,7 +3,7 @@
 %%% Ce fichier et tous les fichiers .tex dont la racine est
 %%% mentionnée dans les commandes \include et \input ci-dessous font
 %%% partie du projet «Reproductibilité en apprentissage automatique
-%%% - Webinaire de l'institut intelligence et données»
+%%% - Webinaire de l'AAIARD»
 %%% https://davebulaval.github.io/reproductibilite-en-apprentissage-automatique/
 %%%
 %%% Le format et le visuel est très fortement inspiré du matériel de
@@ -47,6 +47,17 @@
 %%  Apparence du document
 %% =======================
 
+%% Couleurs additionnelles
+\definecolor{rouge}{rgb}{1,0.31,0.26}
+\definecolor{bleu}{rgb}{0.18,0.23,1}
+\definecolor{couleurpolice}{rgb}{0.13,0.13,0.13}
+
+\definecolor{link}{cmyk}{0.67, 0.66, 0, 0.71}    % liens internes
+\definecolor{url}{rgb}{1,0.31,0.26}       % liens externes
+\definecolor{codebg}{rgb}{0.94, 0.95, 0.95}
+
+\colorlet{shadecolor}{codebg}
+
 %% Thème Beamer général
 \usetheme[titleformat=allcaps, numbering=none, block=transparent]{metropolis}
 
@@ -70,18 +81,17 @@
 
 %% Format de la page de titre de section;
 \makeatletter
+
 \setbeamertemplate{section page}{%
-	\begin{textblock*}{92.5mm}[1,1](187mm,90mm)
-		\includegraphics[height=\paperheight,keepaspectratio, angle=180,origin=c]{img/degrade-coin-rouge}
-	\end{textblock*}
 	\begin{minipage}{22em}
 		\raggedright
 		\usebeamerfont{section title}
-		\let\hyperlink\@secondoftwo\textcolor[cmyk]{0.67, 0.66, 0, 0.71}{\insertsectionhead}\par
+		\let\hyperlink\@secondoftwo\fontsize{35}{35}\textcolor[cmyk]{0.67, 0.66, 0, 0.71}{\insertsectionhead}\par
 	\end{minipage}
 	\par
 	\vspace{\baselineskip}
 }
+
 \makeatother
 
 %% Polices de caractères
@@ -102,20 +112,6 @@ UprightFont = *-Light,
 BoldFont = *-Regular
 ]
 
-%% Couleurs additionnelles
-\definecolor{comments}{cmyk}{0,1, 1, 0}   % rouge foncé
-\definecolor{link}{cmyk}{0.67, 0.66, 0, 0.71}    % liens internes
-\definecolor{url}{cmyk}{0,1, 1, 0}       % liens externes
-\definecolor{codebg}{named}{LightYellow1} % fond code R
-\definecolor{rouge}{rgb}{0.85,0,0.07} % bandeau rouge UL
-\definecolor{or}{rgb}{1,0.8,0}        % bandeau or UL
-\definecolor{couleurpolice}{cmyk}{0.67, 0.66, 0, 0.71}
-
-\colorlet{alert}{mLightBrown} % alias pour couleur Metropolis
-\colorlet{dark}{mDarkTeal}    % alias pour couleur Metropolis
-\colorlet{code}{mLightGreen}  % alias pour couleur Metropolis
-\colorlet{shadecolor}{codebg}
-
 
 \setbeamercolor{frametitle}{fg=couleurpolice}
 \setbeamercolor{section in head/foot}{fg=couleurpolice}
@@ -126,7 +122,7 @@ BoldFont = *-Regular
 %% Hyperliens
 \hypersetup{%
 	pdfauthor = {David Beauchemin},
-	pdftitle = {Reproductibilité en apprentissage automatique},
+	pdftitle = {Gestion de la configuration et des résultats avec MLflow, Hydra et Poutyne},
 	colorlinks = {true},
 	linktocpage = {true},
 	allcolors = {link},
@@ -168,12 +164,11 @@ BoldFont = *-Regular
 
 %% Lien externe
 \newcommand{\link}[2]{\href{#1}{#2~{\smaller\faExternalLink*}}}
+\newcommand{\email}[2]{\href{#1}{#2~{\smaller\faInbox*}}}
+\newcommand{\guillemet}[1]{\guillemotleft #1 \guillemotright}
 
 %% Simili commande \HUGE
 \newcommand{\HUGE}{\fontsize{36}{36}\selectfont}
-
-%% Raccourcis usuels vg
-\newcommand{\code}[1]{\textcolor{code}{\texttt{#1}}}
 
 %%% =======
 %%%  Varia
@@ -185,6 +180,7 @@ BoldFont = *-Regular
 \newlength{\bandeorwidth}    \newlength{\bandeorheight}
 \newlength{\imageheight}     \newlength{\imagewidth}
 \newlength{\logoheight}
+
 
 \begin{document}
 	
@@ -212,7 +208,9 @@ BoldFont = *-Regular
 			\begin{itemize}
 				\item Introduit à la recherche reproductible en 2016 (\mbox{R Markdown} et \faGit)
 				\item Participation à REPROLANG de la conférence LREC \cite{garneau2020robust}
-				\item Membre actif dans le développement d'une librairie facilitant la reproductibilité (\href{https://poutyne.org/}{Poutyne})
+				\item Membre actif dans le développement d'une librairie facilitant la reproductibilité (\link{https://poutyne.org/}{Poutyne})
+				\item Membre fondateur de \link{https://baseline.quebec/}{Baseline}
+				\item Membre fondateur de \link{https://www.dotlayer.org/}{.Layer}
 			\end{itemize}
 		\end{minipage}
 		
@@ -220,7 +218,8 @@ BoldFont = *-Regular
 			\small
 			\textbf{DAVID BEAUCHEMIN} \\
 			Candidat au doctorat \\
-			Département d'informatique et de génie logiciel
+			Département d'informatique et de génie logiciel \\
+			\footnotesize\email{david.beauchemin@baseline.quebec}{david.beauchemin@baseline.quebec}
 		\end{minipage}
 	\end{frame}
 
@@ -257,7 +256,7 @@ BoldFont = *-Regular
 	\begin{frame}{C'est quoi la reproductibilité ?}
 		La reproductibilité est le principe qui dit qu'on ne peut tirer de conclusions que d'un événement bien décrit, qui est apparu plusieurs fois, provoqué par des \textbf{personnes différentes}.
 		
-		Par contre, en apprentissage automatique, la reproductibilité correspond (surtout) à être capable de reproduire des résultats, soit d'obtenir des résultats similaires en réexécutant un code source\cite{pineau2020improving}.
+		Par contre, en apprentissage automatique, la reproductibilité correspond (surtout) à être capable de reproduire des résultats, soit d'obtenir des résultats similaires en réexécutant un code source \cite{pineau2020improving}.
 		
 		\note{
 			
@@ -381,7 +380,7 @@ BoldFont = *-Regular
 		\begin{figure}
 			\centering
 			\includegraphics[scale=0.19]{img/cycle.png}
-			\caption{\href{https://eng.uber.com/scaling-michelangelo/}{From Uber Engineering}}
+			\caption{\link{https://eng.uber.com/scaling-michelangelo/}{From Uber Engineering}}
 		\end{figure}
 	\end{frame}
 	
@@ -389,7 +388,7 @@ BoldFont = *-Regular
 		\begin{figure}
 			\centering
 			\includegraphics[scale=0.24]{img/cycle-white.png}
-			\caption{\href{https://johann.schleier-smith.com/blog/2015/08/09/need-for-agile-machine-learning.html}{The need for Agile machine learning}}
+			\caption{\link{https://johann.schleier-smith.com/blog/2015/08/09/need-for-agile-machine-learning.html}{The need for Agile machine learning}}
 		\end{figure}
 	\end{frame}
 	
@@ -466,13 +465,13 @@ BoldFont = *-Regular
 			\centering
 			\includesvg[width=40pt, height=40pt]{./img/DVC} \vfil
 			\vspace{1.25em}
-			\href{https://dvc.org/}{Data Version Control}
+			\link{https://dvc.org/}{Data Version Control}
 		\end{minipage}
 			\begin{minipage}{0.49\linewidth}
 				\centering
 				\includesvg[width=30pt, height=30pt]{./img/dask} \vfil
 				\vspace{0.75em}
-				\href{https://dask.org/}{Dask}
+				\link{https://dask.org/}{Dask}
 			\end{minipage}
  	\end{frame}
 	
@@ -511,25 +510,25 @@ BoldFont = *-Regular
 			\centering
 			\fontsize{35}{35}\faGit\vfill
 			\vspace{1em}
-			\normalsize \href{https://git-scm.com/}{Git}
+			\normalsize \link{https://git-scm.com/}{Git}
 		\end{minipage}
 		\begin{minipage}{0.24\linewidth}
 			\centering
 			\fontsize{35}{35}\faGithub\vfill
 			\vspace{1em}
-			\normalsize \href{https://github.com/}{GitHub}
+			\normalsize \link{https://github.com/}{GitHub}
 		\end{minipage}
 		\begin{minipage}{0.24\linewidth}
 			\centering
 			\fontsize{35}{35}\faGitlab\vfill
 			\vspace{1em}
-			\normalsize \href{https://gitlab.com/}{GitLab}
+			\normalsize \link{https://gitlab.com/}{GitLab}
 		\end{minipage}
 		\begin{minipage}{0.24\linewidth}
 			\centering
 			\fontsize{35}{35}\faBitbucket\vfill
 			\vspace{1em}
-			\normalsize \href{https://bitbucket.org/}{Bitbucket}
+			\normalsize \link{https://bitbucket.org/}{Bitbucket}
 		\end{minipage}
 	\end{frame}
 
@@ -606,31 +605,31 @@ BoldFont = *-Regular
 			\centering
 			\includesvg[width=40pt, height=40pt]{./img/poutyne} \vfil
 			\vspace{1.5em}
-			\href{https://poutyne.org/}{Poutyne}
+			\link{https://poutyne.org/}{Poutyne}
 		\end{minipage}
 		\begin{minipage}{0.19\linewidth}
 			\centering
 			\includesvg[width=40pt, height=40pt]{./img/lightning} \vfil
 			\vspace{2.75em}
-			\href{https://www.pytorchlightning.ai/}{PyTorch Lightning}
+			\link{https://www.pytorchlightning.ai/}{PyTorch Lightning}
 		\end{minipage}
 		\begin{minipage}{0.19\linewidth}
 			\centering
 			\includesvg[width=40pt, height=40pt]{./img/scikitlearn} \vfil
 			\vspace{2.75em}
-			\href{https://scikit-learn.org/stable/}{Scikit-learn}
+			\link{https://scikit-learn.org/stable/}{Scikit-learn}
 		\end{minipage}
 			\begin{minipage}{0.19\linewidth}
 				\centering
 				\includesvg[width=40pt, height=40pt]{./img/gensim} \vfil
 				\vspace{1em}
-				\href{https://radimrehurek.com/gensim/}{Gensim}
+				\link{https://radimrehurek.com/gensim/}{Gensim}
 			\end{minipage}
 			\begin{minipage}{0.19\linewidth}
 				\centering
 				\includesvg[width=40pt, height=40pt]{./img/AllenNLP} \vfil
 				\vspace{3.75em}
-				\href{https://github.com/allenai/allennlp}{Allen NLP}
+				\link{https://github.com/allenai/allennlp}{Allen NLP}
 			\end{minipage}
 	\end{frame}
 	
@@ -680,25 +679,25 @@ BoldFont = *-Regular
 		\centering
 		\includegraphics[width=40pt, height=40pt, keepaspectratio]{./img/MLflow} \vfil
 		\vspace{1.5em}
-		\href{https://mlflow.org/}{MLflow}
+		\link{https://mlflow.org/}{MLflow}
 	\end{minipage}
 	\begin{minipage}{0.24\linewidth}
 		\centering
 		\includesvg[width=40pt, height=40pt]{./img/hydra} \vfil
 		\vspace{2em}
-		\href{https://hydra.cc/}{Hydra}
+		\link{https://hydra.cc/}{Hydra}
 	\end{minipage}
 	\begin{minipage}{0.24\linewidth}
 		\centering
 		\fontsize{35}{35}\faGithub\vfill
 		\vspace{1em}
-		\normalsize\href{https://sacred.readthedocs.io/en/stable/}{Sacred}
+		\normalsize\link{https://sacred.readthedocs.io/en/stable/}{Sacred}
 	\end{minipage}
 	\begin{minipage}{0.24\linewidth}
 		\centering
 		\fontsize{35}{35}\faGithub\vfill
 		\vspace{1em}
-		\normalsize\href{https://notificationdoc.ca/}{Notif}
+		\normalsize\link{https://notificationdoc.ca/}{Notif}
 	\end{minipage}
 \end{frame}
 	
@@ -767,36 +766,36 @@ BoldFont = *-Regular
 	\end{frame}
 
 	\begin{frame}{Rapport et analyse des résultats}
-		\begin{minipage}{0.18\linewidth}
+		\begin{minipage}{0.19\linewidth}
 			\centering
 			\fontsize{35}{35}\faGithub\vfill
 			\vspace{3em}
-			\normalsize\href{https://github.com/jsleb333/python2latex}{Python2LaTeX}
-		\end{minipage}\footnote{\href{https://pythonexamples.org/pandas-render-dataframe-as-html-table/}{Ou en HTML avec Pandas}}
-		\begin{minipage}{0.18\linewidth}
+			\normalsize\link{https://github.com/jsleb333/python2latex}{Python2LaTeX}
+		\end{minipage}\footnote{\link{https://pythonexamples.org/pandas-render-dataframe-as-html-table/}{Ou en HTML avec Pandas}}
+		\begin{minipage}{0.19\linewidth}
 			\centering
 			\includesvg[width=40pt, height=40pt]{./img/tensorflow} \vfil
 			\vspace{1.5em}
-			\href{https://www.tensorflow.org/tensorboard?hl=fr}{TensorBoard}
+			\link{https://www.tensorflow.org/tensorboard?hl=fr}{TensorBoard}
 		\end{minipage}
 		\begin{minipage}{0.18\linewidth}
 			\centering
 			\includesvg[width=40pt, height=40pt]{./img/jupyter} \vfil
 			\vspace{1.5em}
-			\href{https://jupyter.org/}{Jupyter notebook}
-		\end{minipage}\footnote{\href{https://www.youtube.com/watch?v=7jiPeIFXb6U}{\textit{I don't like notebooks} - Joel Grus}}
+			\link{https://jupyter.org/}{Jupyter notebook}
+		\end{minipage}\footnote{\link{https://www.youtube.com/watch?v=7jiPeIFXb6U}{\textit{I don't like notebooks} - Joel Grus}}
 		\begin{minipage}{0.18\linewidth}
 			\centering
 			\includesvg[width=40pt, height=40pt]{./img/markdown} \vfil
 			\vspace{2.6em}
-			\href{https://fr.wikipedia.org/wiki/Markdown}{Markdown}
+			\link{https://fr.wikipedia.org/wiki/Markdown}{Markdown}
 		\end{minipage}
 		\begin{minipage}{0.18\linewidth}
 			\centering
 			\includesvg[width=40pt, height=40pt]{./img/dash} \vfil
 			\vspace{3.5em}
-			\href{https://dash.plotly.com/}{Dash}
-		\end{minipage}\footnote{\href{https://dash-gallery.plotly.host/dash-oil-and-gas/}{\textit{New York Oil and Gas}}}
+			\link{https://dash.plotly.com/}{Dash}
+		\end{minipage}\footnote{\link{https://dash-gallery.plotly.host/dash-oil-and-gas/}{\textit{New York Oil and Gas}}}
 	\end{frame}
 
 	\begin{frame}{Au menu}
@@ -858,13 +857,13 @@ BoldFont = *-Regular
 				\centering
 				\includesvg[width=40pt, height=40pt]{./img/docker} \vfil
 				\vspace{1em}
-				\href{https://www.docker.com/}{Docker}
+				\link{https://www.docker.com/}{Docker}
 			\end{minipage}
 			\begin{minipage}{0.49\linewidth}
 				\centering
 				\includesvg[width=40pt, height=40pt]{./img/Kubernetes} \vfil
 				\vspace{1em}
-				\href{https://kubernetes.io/fr/}{Kubernetes}
+				\link{https://kubernetes.io/fr/}{Kubernetes}
 			\end{minipage}
 		\end{frame}
 		
@@ -879,24 +878,22 @@ BoldFont = *-Regular
 	
 	\begin{frame}{Pour aller plus loin (en ordre)}
 		\begin{itemize}
-			\item \href{https://www.oreilly.com/library/view/clean-code-a/9780136083238/}{Clean code}
-			\item \href{https://github.com/iterative/cml}{Continuous Machine Learning}
-			\item \href{https://determined.ai/blog/reproducibility-in-ml/}{Reproducibility in ML: Why it Matters and How to Achieve it}
+			\item \link{https://www.oreilly.com/library/view/clean-code-a/9780136083238/}{Clean code}
+			\item \link{https://github.com/iterative/cml}{Continuous Machine Learning}
+			\item \link{https://determined.ai/blog/reproducibility-in-ml/}{Reproducibility in ML: Why it Matters and How to Achieve it}
 			\item Faire des tests!
 			\item Writing Code for NLP Research \cite{gardner-etal-2018-writing}
 			\item \textit{Improving Reproducibility in Machine Learning Research (A Report from the NeurIPS 2019 Reproducibility Program} \cite{pineau2020improving}
-			\item \href{https://sebastianraschka.com/blog/2018/model-evaluation-selection-part4.html}{Model Evaluation, Model Selection, and Algorithm Selection in Machine Learning}
-			\item \href{https://www.youtube.com/watch?v=t86v3N4OshQ&list=LLFp5G_2HoipBrGaw9iAcPPw&index=693}{SOLID}
+			\item \link{https://sebastianraschka.com/blog/2018/model-evaluation-selection-part4.html}{Model Evaluation, Model Selection, and Algorithm Selection in Machine Learning}
+			\item \link{https://www.youtube.com/watch?v=t86v3N4OshQ&list=LLFp5G_2HoipBrGaw9iAcPPw&index=693}{SOLID}
 		\end{itemize}
 	\end{frame}
 	
 	\begin{frame}
 		\frametitle{Période de questions}
-		
 		\centering
 		\fontsize{100}{100}
 		\faQuestion
-		
 	\end{frame}
 
 	\input{couverture-arriere}
