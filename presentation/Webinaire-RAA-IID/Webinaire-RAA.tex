@@ -41,7 +41,7 @@
 %% =============================
 \title{Reproductibilité en apprentissage automatique}
 \author{David Beauchemin}
-\date{30 octobre 2020}
+\date{4 mai 2021}
 
 %% =======================
 %%  Apparence du document
@@ -213,6 +213,7 @@ BoldFont = *-Regular
 				\item Introduit à la recherche reproductible en 2016 (\mbox{R Markdown} et \faGit)
 				\item Participation à REPROLANG de la conférence LREC \cite{garneau2020robust}
 				\item Membre actif dans le développement d'une librairie facilitant la reproductibilité (\href{https://poutyne.org/}{Poutyne})
+				\item Mise en production de modèle d'apprentissage automatique (\href{https://deepparse.org/}{Deepparse})
 			\end{itemize}
 		\end{minipage}
 		
@@ -533,6 +534,97 @@ BoldFont = *-Regular
 		\end{minipage}
 	\end{frame}
 
+	\begin{frame}{Dépendances}
+		\uncover<1->{\begin{minipage}{0.32\linewidth}
+				\centering
+				\fontsize{35}{35}\faCopy\vfil
+				\vspace{1em}
+				\normalsize Version
+		\end{minipage}}
+		\uncover<2->{\begin{minipage}{0.32\linewidth}
+				\centering
+				\fontsize{35}{35}\faList\vfil
+				\vspace{1em}
+				\normalsize Conflits
+		\end{minipage}}
+		\uncover<3->{\begin{minipage}{0.32\linewidth}
+				\centering
+				\fontsize{35}{35}\faCodeFork\vfil
+				\vspace{1em}
+				\normalsize Installation
+		\end{minipage}}
+		\note{
+			Avec quelle version de cette librairie doit-on travailler?
+			
+			Comment gérer les conflits entre des versions?
+			
+			Comment installer facilement et rapidement des dépendances?
+			
+			Il nous faut un outil nous permettant de \textbf{définir} les dépendances, capable de gérer les conflits entre des versions et nous permettant d'installer facilement des dépendances.
+		}
+	\end{frame}
+
+	\begin{frame}{Dépendances}
+		\begin{minipage}{0.49\linewidth}
+			\centering
+			\includesvg[width=70pt, height=70pt]{./img/conda} \vfil
+			\vspace{1.25em}
+			\href{https://docs.conda.io/en/latest/}{Conda}
+		\end{minipage}
+		\begin{minipage}{0.49\linewidth}
+			\centering
+			\fontsize{35}{35}\faFileTextO\vfill
+			\vspace{1em}
+			\normalsize \href{https://medium.com/featurepreneur/install-python-packages-pip-and-requirements-txt-652cd5e335}{requirements.txt}
+		\end{minipage}
+	\end{frame}
+
+	\begin{frame}{Environnement}
+	
+		\centering
+		\uncover<1->{\begin{minipage}{0.32\linewidth}
+				\centering
+				\fontsize{35}{35}\faFileArchiveO\vfil
+				\vspace{1em}
+				\normalsize Différents environnements
+		\end{minipage}}
+		\uncover<2->{\begin{minipage}{0.32\linewidth}
+				\centering
+				\fontsize{35}{35}\faExchange\vfil
+				\vspace{1em}
+				\normalsize Changer
+		\end{minipage}}
+		\uncover<3->{\begin{minipage}{0.32\linewidth}
+				\centering
+				\fontsize{35}{35}\faCodeFork\vfil
+				\vspace{1em}
+				\normalsize Version des dépendances
+		\end{minipage}}
+		
+		\note{
+			Comment s'assurer que nos environnements de développement ne rentre pas en conflit entre eux?
+
+			Comment naviguer entre deux environnements?
+			
+			Comment gérer plusieurs version des dépendances?
+		}
+	\end{frame}
+
+	\begin{frame}{Environnement}
+		\begin{minipage}{0.49\linewidth}
+			\centering
+			\includesvg[width=70pt, height=70pt]{./img/conda} \vfil
+			\vspace{1.25em}
+			\href{https://docs.conda.io/en/latest/}{Conda}
+		\end{minipage}
+		\begin{minipage}{0.49\linewidth}
+			\centering
+			\fontsize{30}{30}\faTags\vfil
+			\vspace{0.5em}
+			\href{https://pythonbasics.org/virtualenv/}{Virtualenv}
+		\end{minipage}
+	\end{frame}
+
 	\begin{frame}{Au menu}
 		\begin{minipage}{0.24\linewidth}
 			\centering
@@ -676,31 +768,31 @@ BoldFont = *-Regular
 	\end{frame}
 
 	\begin{frame}{Entraînement, configuration et résultats}
-	\begin{minipage}{0.24\linewidth}
-		\centering
-		\includegraphics[width=40pt, height=40pt, keepaspectratio]{./img/MLflow} \vfil
-		\vspace{1.5em}
-		\href{https://mlflow.org/}{MLflow}
-	\end{minipage}
-	\begin{minipage}{0.24\linewidth}
-		\centering
-		\includesvg[width=40pt, height=40pt]{./img/hydra} \vfil
-		\vspace{2em}
-		\href{https://hydra.cc/}{Hydra}
-	\end{minipage}
-	\begin{minipage}{0.24\linewidth}
-		\centering
-		\fontsize{35}{35}\faGithub\vfill
-		\vspace{1em}
-		\normalsize\href{https://sacred.readthedocs.io/en/stable/}{Sacred}
-	\end{minipage}
-	\begin{minipage}{0.24\linewidth}
-		\centering
-		\fontsize{35}{35}\faGithub\vfill
-		\vspace{1em}
-		\normalsize\href{https://notificationdoc.ca/}{Notif}
-	\end{minipage}
-\end{frame}
+		\begin{minipage}{0.24\linewidth}
+			\centering
+			\includegraphics[width=40pt, height=40pt, keepaspectratio]{./img/MLflow} \vfil
+			\vspace{1.5em}
+			\href{https://mlflow.org/}{MLflow}
+		\end{minipage}
+		\begin{minipage}{0.24\linewidth}
+			\centering
+			\includesvg[width=40pt, height=40pt]{./img/hydra} \vfil
+			\vspace{2em}
+			\href{https://hydra.cc/}{Hydra}
+		\end{minipage}
+		\begin{minipage}{0.24\linewidth}
+			\centering
+			\fontsize{35}{35}\faGithub\vfill
+			\vspace{1em}
+			\normalsize\href{https://sacred.readthedocs.io/en/stable/}{Sacred}
+		\end{minipage}
+		\begin{minipage}{0.24\linewidth}
+			\centering
+			\fontsize{35}{35}\faGithub\vfill
+			\vspace{1em}
+			\normalsize\href{https://notificationdoc.ca/}{Notif}
+		\end{minipage}
+	\end{frame}
 	
 	\begin{frame}{Au menu}
 		\begin{minipage}{0.24\linewidth}
@@ -830,7 +922,7 @@ BoldFont = *-Regular
 		\end{minipage}
 	\end{frame}
 	
-	\begin{frame}{Environnement}
+	\begin{frame}{Gestion des environnements}
 		
 		\centering
 		\uncover<1->{\begin{minipage}{0.49\linewidth}
@@ -866,7 +958,7 @@ BoldFont = *-Regular
 				\vspace{1em}
 				\href{https://kubernetes.io/fr/}{Kubernetes}
 			\end{minipage}
-		\end{frame}
+	\end{frame}
 		
 	\section{La suite}
 	\begin{frame}
@@ -879,10 +971,12 @@ BoldFont = *-Regular
 	
 	\begin{frame}{Pour aller plus loin (en ordre)}
 		\begin{itemize}
+			\item \href{https://www.dotlayer.org/outils-reproductibilite-ml/}{Un aperçu des outils à utiliser pour développer un projet de ml davantage reproductible}
+			\item \href{https://davebulaval.github.io/gestion-configuration-resultats/}{Gestion de la configuration et des résultats avec MLflow, Hydra et Poutyne}
 			\item \href{https://www.oreilly.com/library/view/clean-code-a/9780136083238/}{Clean code}
+			\item Faire des tests unitaires!
 			\item \href{https://github.com/iterative/cml}{Continuous Machine Learning}
 			\item \href{https://determined.ai/blog/reproducibility-in-ml/}{Reproducibility in ML: Why it Matters and How to Achieve it}
-			\item Faire des tests!
 			\item Writing Code for NLP Research \cite{gardner-etal-2018-writing}
 			\item \textit{Improving Reproducibility in Machine Learning Research (A Report from the NeurIPS 2019 Reproducibility Program} \cite{pineau2020improving}
 			\item \href{https://sebastianraschka.com/blog/2018/model-evaluation-selection-part4.html}{Model Evaluation, Model Selection, and Algorithm Selection in Machine Learning}
