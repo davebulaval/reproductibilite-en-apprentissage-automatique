@@ -5,3 +5,10 @@ Ce webinaire se veut une brève introduction à la « recherche reproductible »
 David est candidat au Doctorat en Informatique à l'Université Laval cumulant une expertise en actuariat, informatique et génie logiciel. Il se spécialise en traitement automatique de la langue naturelle en utilisant l’apprentissage automatique. Il a eu un pied en industrie tout au long de son parcours académique en appliquant ses connaissances théoriques à des problèmes réels auxquels les entreprises sont confrontées. Il a récemment fondé avec des collègues Baseline, une coopérative d’expert en IA désirant contribuer au transfert technologique entre le milieu académique et le monde des affaires.
 
 > Le code source des différentes versions de la présentation se situe dans le fichier `presentation`. 
+
+## À propos des versions
+
+- RAA-IID: Première version présentée durant les webinaires de l'Institut Intelligence et Données. L'enregistrement de la présentation est disponible [ici](https://www.youtube.com/watch?v=Fw_lRiTrmnk&feature=youtu.be)
+- RAA-AAIARD: Deuxième version présentée durant un webinaire de l'Association des Actuaires I.A.R.D.
+- RAA-bootcamp-IID: Troisième version présentée durant le bootcamp 2021 de l'Institut Intelligence et Données (plus récente version). L'enregistrement de la présentation sera disponible bientôt.
+
