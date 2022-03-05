@@ -10,5 +10,5 @@ David est candidat au Doctorat en Informatique à l'Université Laval cumulant u
 
 - RAA-IID: Première version présentée durant les webinaires de l'Institut Intelligence et Données. L'enregistrement de la présentation est disponible [ici](https://www.youtube.com/watch?v=Fw_lRiTrmnk&feature=youtu.be)
 - RAA-AAIARD: Deuxième version présentée durant un webinaire de l'Association des Actuaires I.A.R.D.
-- RAA-bootcamp-IID: Troisième version présentée durant le bootcamp 2021 de l'Institut Intelligence et Données (plus récente version). L'enregistrement de la présentation sera disponible bientôt.
+- RAA-bootcamp-IID: Troisième version présentée durant le bootcamp 2021 de l'Institut Intelligence et Données (plus récente version). L'enregistrement de la présentation est disponible [ici](https://www.youtube.com/watch?v=GkMrBgnvCBI).
 
