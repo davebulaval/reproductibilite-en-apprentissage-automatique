@@ -3,7 +3,7 @@
 %%% Ce fichier et tous les fichiers .tex dont la racine est
 %%% mentionnée dans les commandes \include et \input ci-dessous font
 %%% partie du projet «Reproductibilité en apprentissage automatique
-%%% - Webinaire de l'institut intelligence et données»
+%%% - Webinaire de l'AAIARD»
 %%% https://davebulaval.github.io/reproductibilite-en-apprentissage-automatique/
 %%%
 %%% Le format et le visuel est très fortement inspiré du matériel de
@@ -15,12 +15,11 @@
 %%% https://creativecommons.org/licenses/by-sa/4.0/
 
 \documentclass[aspectratio=169,10pt,xcolor=x11names,english,french]{beamer}
-%\setbeameroption{show only notes}
 \usepackage{babel}
 \usepackage[autolanguage]{numprint}
 \usepackage{amsmath}
 \usepackage{currfile}                  % nom fichier de script
-\usepackage{changepage}                 % page licence
+\usepackage{changepage}                % page licence
 \usepackage{tabularx}                  % page licence
 \usepackage{relsize}                   % \smaller et al.
 \usepackage{awesomebox}                % boites signalétiques
@@ -42,11 +41,22 @@
 %% =============================
 \title{Reproductibilité en apprentissage automatique}
 \author{David Beauchemin}
-\date{4 mai 2021}
+\date{30 octobre 2020}
 
 %% =======================
 %%  Apparence du document
 %% =======================
+
+%% Couleurs additionnelles
+\definecolor{rouge}{rgb}{1,0.31,0.26}
+\definecolor{bleu}{rgb}{0.18,0.23,1}
+\definecolor{couleurpolice}{rgb}{0.13,0.13,0.13}
+
+\definecolor{link}{cmyk}{0.67, 0.66, 0, 0.71}    % liens internes
+\definecolor{url}{rgb}{1,0.31,0.26}       % liens externes
+\definecolor{codebg}{rgb}{0.94, 0.95, 0.95}
+
+\colorlet{shadecolor}{codebg}
 
 %% Thème Beamer général
 \usetheme[titleformat=allcaps, numbering=none, block=transparent]{metropolis}
@@ -71,19 +81,17 @@
 
 %% Format de la page de titre de section;
 \makeatletter
+
 \setbeamertemplate{section page}{%
-	\begin{textblock*}{92.5mm}[1,1](187mm,90mm)
-		\includegraphics[height=\paperheight,keepaspectratio, angle=180,origin=c]{img/degrade-coin-rouge}
-	\end{textblock*}
 	\begin{minipage}{22em}
 		\raggedright
 		\usebeamerfont{section title}
-		\let\hyperlink\@secondoftwo\textcolor[cmyk]{0.67, 0.66, 0, 0.71}{\insertsectionhead}\par
+		\let\hyperlink\@secondoftwo\fontsize{35}{35}\textcolor[cmyk]{0.67, 0.66, 0, 0.71}{\insertsectionhead}\par
 	\end{minipage}
 	\par
 	\vspace{\baselineskip}
-		\note{}
 }
+
 \makeatother
 
 %% Polices de caractères
@@ -104,20 +112,6 @@ UprightFont = *-Light,
 BoldFont = *-Regular
 ]
 
-%% Couleurs additionnelles
-\definecolor{comments}{cmyk}{0,1, 1, 0}   % rouge foncé
-\definecolor{link}{cmyk}{0.67, 0.66, 0, 0.71}    % liens internes
-\definecolor{url}{cmyk}{0,1, 1, 0}       % liens externes
-\definecolor{codebg}{named}{LightYellow1} % fond code R
-\definecolor{rouge}{rgb}{0.85,0,0.07} % bandeau rouge UL
-\definecolor{or}{rgb}{1,0.8,0}        % bandeau or UL
-\definecolor{couleurpolice}{cmyk}{0.67, 0.66, 0, 0.71}
-
-\colorlet{alert}{mLightBrown} % alias pour couleur Metropolis
-\colorlet{dark}{mDarkTeal}    % alias pour couleur Metropolis
-\colorlet{code}{mLightGreen}  % alias pour couleur Metropolis
-\colorlet{shadecolor}{codebg}
-
 
 \setbeamercolor{frametitle}{fg=couleurpolice}
 \setbeamercolor{section in head/foot}{fg=couleurpolice}
@@ -128,7 +122,7 @@ BoldFont = *-Regular
 %% Hyperliens
 \hypersetup{%
 	pdfauthor = {David Beauchemin},
-	pdftitle = {Reproductibilité en apprentissage automatique},
+	pdftitle = {Gestion de la configuration et des résultats avec MLflow, Hydra et Poutyne},
 	colorlinks = {true},
 	linktocpage = {true},
 	allcolors = {link},
@@ -170,12 +164,11 @@ BoldFont = *-Regular
 
 %% Lien externe
 \newcommand{\link}[2]{\href{#1}{#2~{\smaller\faExternalLink*}}}
+\newcommand{\email}[2]{\href{#1}{#2~{\smaller\faInbox*}}}
+\newcommand{\guillemet}[1]{\guillemotleft #1 \guillemotright}
 
 %% Simili commande \HUGE
 \newcommand{\HUGE}{\fontsize{36}{36}\selectfont}
-
-%% Raccourcis usuels vg
-\newcommand{\code}[1]{\textcolor{code}{\texttt{#1}}}
 
 %%% =======
 %%%  Varia
@@ -187,6 +180,7 @@ BoldFont = *-Regular
 \newlength{\bandeorwidth}    \newlength{\bandeorheight}
 \newlength{\imageheight}     \newlength{\imagewidth}
 \newlength{\logoheight}
+
 
 \begin{document}
 	
@@ -669,6 +663,29 @@ BoldFont = *-Regular
 		\end{minipage}
 		\note{}
 	\end{frame}
+
+\subsection{Développement}
+\begin{frame}{Démarer un projet}
+	\begin{minipage}{\linewidth}
+			\centering
+			\fontsize{35}{35}\faForward\vfil
+			\vspace{3.5em}
+			\normalsize Rapide
+	\end{minipage}
+	\note{
+		Démarage rapide, pas de boilerplate de toujours refaire la même arborescence de répertoire.
+	}
+\end{frame}
+
+\begin{frame}{Démarer un projet}
+	\begin{minipage}{\linewidth}
+		\centering
+		\fontsize{35}{35}\faBox\vfil
+		\vspace{3.5em}
+		\href{https://github.com/davebulaval/cookiecutter-machine-learning-research}{ML Cookiecutter}
+	\end{minipage}
+	\note{}
+\end{frame}
 	
 	\subsection{Développement}
 	\begin{frame}{Développement des modèles}
@@ -782,25 +799,31 @@ BoldFont = *-Regular
 	\end{frame}
 
 	\begin{frame}{Entraînement, configuration et résultats}
-		\begin{minipage}{0.24\linewidth}
+		\begin{minipage}{0.19\linewidth}
 			\centering
 			\includegraphics[width=40pt, height=40pt, keepaspectratio]{./img/MLflow} \vfil
 			\vspace{1.5em}
 			\href{https://mlflow.org/}{MLflow}
 		\end{minipage}
-		\begin{minipage}{0.24\linewidth}
+		\begin{minipage}{0.19\linewidth}
+			\centering
+			\includesvg[width=40pt, height=40pt]{./img/wandb-dots-logo} \vfil
+			\vspace{1.5em}
+			\href{https://wandb.ai/site}{Weights \& Biases}
+		\end{minipage}
+		\begin{minipage}{0.19\linewidth}
 			\centering
 			\includesvg[width=40pt, height=40pt]{./img/hydra} \vfil
 			\vspace{2em}
 			\href{https://hydra.cc/}{Hydra}
 		\end{minipage}
-		\begin{minipage}{0.24\linewidth}
+		\begin{minipage}{0.19\linewidth}
 			\centering
 			\fontsize{35}{35}\faGithub\vfill
 			\vspace{1em}
 			\normalsize\href{https://sacred.readthedocs.io/en/stable/}{Sacred}
 		\end{minipage}
-		\begin{minipage}{0.24\linewidth}
+		\begin{minipage}{0.19\linewidth}
 			\centering
 			\fontsize{35}{35}\faGithub\vfill
 			\vspace{1em}
@@ -939,6 +962,61 @@ BoldFont = *-Regular
 		\end{minipage}
 		\note{}
 	\end{frame}
+
+	
+	\begin{frame}{Gestion de l'assurance qualité}
+		
+		\centering
+		\uncover<1->{\begin{minipage}{0.49\linewidth}
+				\centering
+				\fontsize{35}{35}\faBug\vfil
+				\vspace{1em}
+				\normalsize Détection d'erreurs de code
+		\end{minipage}}
+		\uncover<2->{\begin{minipage}{0.49\linewidth}
+				\centering
+				\fontsize{35}{35}\faCertificate\vfil
+				\vspace{1em}
+				\normalsize Niveau de qualité
+		\end{minipage}}
+		
+		\note{
+			
+		}
+	\end{frame}
+	
+	\begin{frame}{Gestion de l'assurance qualité}
+		\begin{minipage}{0.24\linewidth}
+			\centering
+			\includesvg[width=40pt, height=40pt]{./img/pytest_logo_curves} \vfil
+			\vspace{1em}
+			\href{https://docs.pytest.org/en/7.1.x/}{PyTest}
+		\end{minipage}
+		\begin{minipage}{0.24\linewidth}
+			\centering
+			\includegraphics[width=40pt, height=40pt, keepaspectratio]{./img/TravisCI-Full-Color} \vfil
+			\vspace{1em}
+			\href{https://travis-ci.org/}{Intégration continue (\textit{CI})}
+		\end{minipage}
+		\begin{minipage}{0.24\linewidth}
+			\centering
+			\includegraphics[width=40pt, height=40pt, keepaspectratio]{./img/black-python} \vfil
+			\vspace{1em}
+			\href{https://black.readthedocs.io/en/stable/}{Formatage de code}
+		\end{minipage}
+		\begin{minipage}{0.24\linewidth}
+			\centering
+			Pylint \vfil
+			\vspace{1em}
+			\href{https://pylint.pycqa.org/en/latest/index.html}{Analyse de code (\textit{linter})}
+		\end{minipage}
+	\hfill
+	\vspace{2em}
+	
+	\bigskip
+		Voir aussi \textit{\href{https://martinfowler.com/articles/cd4ml.html}{Continuous Machine Learning}}
+		\note{}
+	\end{frame}
 	
 	\begin{frame}{Gestion des environnements}
 		
@@ -992,6 +1070,7 @@ BoldFont = *-Regular
 		\begin{itemize}
 			\item \href{https://www.dotlayer.org/outils-reproductibilite-ml/}{Un aperçu des outils à utiliser pour développer un projet de ml davantage reproductible}
 			\item \href{https://davebulaval.github.io/gestion-configuration-resultats/}{Gestion de la configuration et des résultats avec MLflow, Hydra et Poutyne}
+			\item \href{https://www.reddit.com/r/MachineLearning/comments/mhchee/d_comparison_of_experiment_tracking_tools/?utm_medium=android_app&utm_source=share}{Différence entre les outils de gestion des expérimentations}
 			\item \href{https://www.oreilly.com/library/view/clean-code-a/9780136083238/}{Clean code}
 			\item Faire des tests unitaires!
 			\item \href{https://github.com/iterative/cml}{Continuous Machine Learning}
