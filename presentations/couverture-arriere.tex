@@ -1,0 +1,88 @@
+%%% Copyright (C) 2020 David Beauchemin
+%%%
+%%% Ce fichier et tous les fichiers .tex dont la racine est
+%%% mentionnée dans les commandes \include et \input ci-dessous font
+%%% partie du projet «Reproductibilité en apprentissage automatique
+%%% - Webinaire de l'AAIARD»
+%%% https://davebulaval.github.io/reproductibilite-en-apprentissage-automatique/
+%%%
+%%% Le format et le visuel est très fortement inspiré du matériel de
+%%% Vincent Goulet https://gitlab.com/vigou3/webinaire-recherche-reproductible
+%%%
+%%% Cette création est mise à disposition selon le contrat
+%%% Attribution-Partage dans les mêmes conditions 4.0
+%%% International de Creative Commons.
+%%% https://creativecommons.org/licenses/by-sa/4.0/
+
+%% Normes de présentation visuelle 2018
+%%
+%% - grille de 8 unités de haut
+%% - 1 mesure = 1/8 d'unité
+%% - bande identitaire de 1 mesure placée au bas de la 7e unité
+%% - logo haut de 4 mesures avec blancs de deux mesures en haut et
+%%   en bas
+%% - blanc équivalent à la largeur du blason à droite du logo
+%% - bande or de la largeur du logo + blanc à droite
+%%
+%% Dimensions du logo UL
+%%
+%% hauteur: 129
+%% largeur totale: 312
+%% largeur blason: 102
+%% valeur clé: (312 + 102)/129 = 3.209302
+%%
+%% Dimensions de l'image
+%%
+%% hauteur: 55 mesures - 1pt (filet) = 54.9191919 mesures
+%% largeur: 160mm
+%% ratio largeur/hauteur: 160/77.23
+
+\begingroup
+\TPGrid{16}{64}
+\textblockorigin{0mm}{0mm}
+\setlength{\parindent}{0mm}
+\setlength{\imageheight}{54.9191919\TPVertModule}
+\setlength{\logoheight}{4\TPVertModule}
+\setlength{\bandeorwidth}{3.209302\logoheight}
+\setlength{\banderougewidth}{\paperwidth}
+\addtolength{\banderougewidth}{-\bandeorwidth}
+\setlength{\bandeorheight}{\TPVertModule}
+\setlength{\banderougeheight}{\TPVertModule}
+\setlength{\textwidth}{\paperwidth}
+\addtolength{\textwidth}{-2\TPHorizModule}
+
+\def\titlefmt{%
+	\bfseries\fontsize{24}{24}\selectfont%
+	MERCI DE VOTRE \\ ÉCOUTE!\par}
+\def\webinaire{%
+	\OverpassSemiBold\bfseries\fontsize{18}{18}\selectfont
+	WEBINAIRE}
+
+%%%
+%%% Page de titre
+%%%
+\begin{frame}[plain]
+	%% bandeau identitaire
+	\begin{textblock*}{\paperwidth}[0,1](0mm,56\TPVertModule)
+		\textcolor{rouge}{\rule{\banderougewidth}{\banderougeheight}}% % bande rouge
+		\textcolor{bleu}{\rule{\bandeorwidth}{\bandeorheight}}           % bande or
+	\end{textblock*}
+	
+	%% identifiant «webinaire»
+	\begin{textblock*}{10\TPHorizModule}(0.7\TPHorizModule,5\TPVertModule)
+		\textcolor[rgb]{0.13,0.13,0.13}{\webinaire}
+	\end{textblock*}
+	
+	%% titre
+	\begin{textblock*}{12\TPHorizModule}(0.7\TPHorizModule,17\TPVertModule)
+		\textcolor[rgb]{0.13,0.13,0.13}{\titlefmt}
+	\end{textblock*}
+\end{frame}
+
+\endgroup
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-engine: xetex
+%%% TeX-master: "webinaire-recherche-reproductible"
+%%% End:
