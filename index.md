@@ -13,7 +13,8 @@ Ce webinaire se veut une brève introduction à la « recherche reproductible »
 
 - RAA-IID: Première version présentée durant les webinaires de l'Institut Intelligence et Données. L'enregistrement de la présentation est disponible [ici](https://www.youtube.com/watch?v=Fw_lRiTrmnk&feature=youtu.be).
 - RAA-AAIARD: Deuxième version présentée durant un webinaire de l'Association des Actuaires I.A.R.D.
-- RAA-bootcamp-IID: Troisième version présentée durant le bootcamp 2021 de l'Institut Intelligence et Données (plus récente version). L'enregistrement de la présentation est disponible [ici](https://www.youtube.com/watch?v=GkMrBgnvCBI).
+- RAA-bootcamp-IID: Troisième version présentée durant le bootcamp 2021 de l'Institut Intelligence et Données. L'enregistrement de la présentation est disponible [ici](https://www.youtube.com/watch?v=GkMrBgnvCBI).
+- Webinaire-RAA: Quatrième version présenté durant le bootcamp 2022 de l'Institut Intelligence et Données (plus récente version).
 
 ## Auteur et conférencier
 
